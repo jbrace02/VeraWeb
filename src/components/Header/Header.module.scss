@@ -1,0 +1,34 @@
+.header {
+  position: absolute;  /* or fixed if you want it to stick on scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: transparent;
+}
+
+.logoContainer {
+  flex: 0 0 auto;
+  margin-right: 2rem;
+}
+
+.logoVerafyIcon {
+  object-fit: cover;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* centers the generic buttons */
+  gap: 2rem;
+}
+
+.buttonGroup {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
