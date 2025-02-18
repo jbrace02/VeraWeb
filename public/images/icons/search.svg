@@ -1,0 +1,11 @@
+<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Search Icon" clip-path="url(#clip0_1_1766)">
+<path id="line" d="M13.4393 16.116C14.0251 16.7017 14.9749 16.7017 15.5607 16.116C16.1464 15.5302 16.1464 14.5804 15.5607 13.9946L13.4393 16.116ZM9.93934 12.616L13.4393 16.116L15.5607 13.9946L12.0607 10.4946L9.93934 12.616Z" fill="#D6DBE0"/>
+<circle id="circle" cx="6" cy="6.5553" r="5" stroke="#D6DBE0" stroke-width="2"/>
+</g>
+<defs>
+<clipPath id="clip0_1_1766">
+<rect width="16" height="16" fill="white" transform="translate(0 0.555298)"/>
+</clipPath>
+</defs>
+</svg>

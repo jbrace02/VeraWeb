@@ -8,6 +8,11 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        digital: "var(--font-digital7)",
+        inter: "var(--font-inter)",
+        neoneon: "var(--font-neoneon)",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

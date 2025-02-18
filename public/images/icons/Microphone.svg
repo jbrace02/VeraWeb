@@ -1,0 +1,13 @@
+<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Microphone Icon" clip-path="url(#clip0_1_1764)">
+<rect id="Rectangle 210" width="6" height="1" rx="0.5" transform="matrix(1 0 0 -1 5 16.5553)" fill="#D6DBE0"/>
+<rect id="Rectangle 211" width="2" height="2" transform="matrix(1 0 0 -1 7 15.5553)" fill="#D6DBE0"/>
+<path id="Vector 197" d="M3.5 7.0553V9.0553C3.5 11.2644 5.29086 13.0553 7.5 13.0553H8.5C10.7091 13.0553 12.5 11.2644 12.5 9.0553V7.0553" stroke="#D6DBE0" stroke-linecap="round"/>
+<rect id="Rectangle 212" x="5.5" y="1.0553" width="5" height="10" rx="2.5" stroke="#D6DBE0"/>
+</g>
+<defs>
+<clipPath id="clip0_1_1764">
+<rect width="16" height="16" fill="white" transform="translate(0 0.555298)"/>
+</clipPath>
+</defs>
+</svg>

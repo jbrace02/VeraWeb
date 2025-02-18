@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+.buttonSmallCa {
+  /* White border, transparent background, white text */
+  border: 2px solid #fff;
+  background-color: transparent;
+  color: #fff;
+
+  /* Sizing & layout */
+  border-radius: 8px;
+  padding: 8px 16px; /* adjust as needed for exact Figma sizing */
+  display: inline-flex; /* inline so it doesn't stretch the entire width */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+
+  /* Optional hover effect */
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.copyCaParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px; /* spacing between text & icon */
+}
+
+.copyCa {
+  letter-spacing: -0.02em;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+.contentCopyIcon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
