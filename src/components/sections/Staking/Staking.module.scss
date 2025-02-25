@@ -1,36 +1,349 @@
+// /src/components/sections/Staking/Staking.module.scss
+// Define variables for consistency
+$primary-teal: #00fff2;
+$white: #fff;
+$dark-bg: #000;
+$neon-glow-teal: rgba(0, 255, 242, 0.7);
+$border-teal: rgba(0, 255, 242, 0.24);
+$shadow-teal: rgba(0, 255, 242, 0.5);
+
 .stakingSection {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 80px 0;
-  background: #000;
+  background: none; /* Let global.css handle the background */
+  padding-top: 120px; /* Space for header, matching other pages */
+  padding-bottom: 120px; /* Add padding at the bottom to match the top, as requested */
+  z-index: 10; /* Ensure it renders on top of background layers (-10 to -2) */
 }
 
 .container {
-  width: 80%;
   max-width: 1244px;
+  width: 80%;
+  margin: 0 auto;
+  z-index: 11; /* Ensure content renders on top */
+}
+
+/* Header for heading and subheading */
+.header {
+  margin-bottom: 40px; /* Space between header and box */
+  text-align: center;
+  z-index: 12; /* Ensure header renders on top */
+  position: relative;
+}
+
+/* The rounded box containing all staking content */
+.stakingBox {
+  width: 100%;
+  padding: 40px 40px 80px;
+  background: linear-gradient(to bottom, rgba(0, 51, 51, 0.3), $dark-bg);
+  border-radius: 24px;
+  box-shadow: 0px 4px 20px $shadow-teal;
+  border: 1px solid $border-teal;
+  margin-bottom: 320px;
+  position: relative;
+  overflow: hidden;
+  
+  /* Subtle background glow effect */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: radial-gradient(circle at 50% 0%, rgba(0, 255, 242, 0.1), transparent 70%);
+    z-index: 0;
+  }
+  
+  /* Make sure content is above the glow */
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .content {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 60px;
-  gap: 40px;
+  gap: 80px;
+  z-index: 11; /* Ensure content renders on top */
 }
 
 .videoContainer {
-  width: 50%;
+  width: 55%;
+  z-index: 12;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 255, 242, 0.2);
+  border: 1px solid rgba(0, 255, 242, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 255, 242, 0.3);
+  }
 }
 
 .video {
   width: 100%;
   border-radius: 24px;
+  display: block;
 }
 
 .textContainer {
-  width: 50%;
-  text-align: left;
+  width: 45%;
+  z-index: 12; /* Ensure text renders on top */
 }
 
+/* Gradient Heading in Inter, no glow */
+.gradientHeading {
+  font-size: 96px;
+  line-height: 1.1;
+  background: linear-gradient(90deg, $primary-teal, $white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 24px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  position: relative;
+  display: inline-block;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: calc(100% + 20px);
+    background: radial-gradient(ellipse at center, rgba(0, 255, 242, 0.1) 0%, transparent 70%);
+    z-index: -1;
+    border-radius: 50%;
+  }
+}
+
+/* Subheading in Inter, no glow */
+.subheading {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 36px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: $white;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  margin-top: 40px;
+  position: relative;
+  display: inline-block;
+  
+  /* Make the glowing underline shorter */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%; /* Make it shorter - only 30% of text width */
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $primary-teal, transparent);
+    box-shadow: 0 0 3px $neon-glow-teal;
+  }
+}
+
+/* "NeonHeading" => gradient but no glow, in Inter */
+.neonHeading {
+  font-size: 36px;
+  line-height: 1.2;
+  background: linear-gradient(90deg, $primary-teal, $white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Body text in Inter, no glow */
+.descriptionText {
+  font-size: 18px;
+  line-height: 28px;
+  color: $white;
+  margin-bottom: 32px;
+  padding: 20px;
+  background: rgba(0, 255, 242, 0.05);
+  border-radius: 16px;
+  border: 1px solid rgba(0, 255, 242, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 255, 242, 0.2);
+  }
+}
+
+/* Improved Stake button styling */
+.stakeButton {
+  padding: 16px 48px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 51, 51, 0.7));
+  border: 1px solid rgba(0, 255, 242, 0.8);
+  border-radius: 8px;
+  box-shadow: 
+    0px 0px 4px 1px $primary-teal inset,
+    0px 0px 10px rgba(0, 255, 242, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1;
+    background: linear-gradient(45deg, $primary-teal, transparent, $primary-teal);
+    background-size: 400%;
+    border-radius: 10px;
+    opacity: 0;
+    transition: 0.5s;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 
+      0px 0px 6px 2px $primary-teal inset,
+      0px 0px 15px rgba(0, 255, 242, 0.4);
+    
+    &:before {
+      opacity: 1;
+      animation: animate 20s linear infinite;
+    }
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+  
+  z-index: 12; /* Ensure button renders on top */
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Button text styling */
+.buttonText {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  background: linear-gradient(90deg, #00fff2, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+/* Responsive adjustments - enhanced */
+@media (max-width: 1024px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  
+  .videoContainer, .textContainer {
+    width: 100%;
+  }
+  
+  .gradientHeading {
+    font-size: 64px;
+  }
+  
+  .subheading {
+    font-size: 24px;
+  }
+  
+  .stakingBox {
+    padding: 30px 30px 60px;
+    margin-bottom: 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gradientHeading {
+    font-size: 48px;
+  }
+  
+  .subheading {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  
+  .neonHeading {
+    font-size: 28px;
+  }
+  
+  .descriptionText {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .stakingBox {
+    padding: 24px 24px 48px;
+    margin-bottom: 120px;
+  }
+  
+  .container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .gradientHeading {
+    font-size: 36px;
+  }
+  
+  .subheading {
+    font-size: 18px;
+    line-height: 26px;
+  }
+  
+  .neonHeading {
+    font-size: 24px;
+  }
+  
+  .descriptionText {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  
+  .stakingBox {
+    padding: 20px 20px 40px;
+    margin-bottom: 80px;
+  }
+  
+  .stakeButton {
+    padding: 12px 32px;
+  }
+  
+  .buttonText {
+    font-size: 14px;
+  }
+}

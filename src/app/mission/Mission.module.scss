@@ -1,0 +1,466 @@
+// Define variables for consistency
+$dark-bg: #000;
+$teal-bg: #003333;
+$primary-teal: #00fff2;
+$white: #fff;
+$neon-glow-teal: rgba(0, 255, 242, 0.7);
+$subtle-glow-white: rgba(255, 255, 255, 0.3);
+$border-teal: rgba(0, 255, 242, 0.3);
+$shadow-teal: rgba(0, 255, 242, 0.5);
+$green-highlight: #0acf83;
+
+.missionPage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: $white;
+  font-family: "Inter", sans-serif;
+  padding-top: 120px; /* Ensure enough space for the fixed header */
+}
+
+/* Hero / Header Section */
+.heroSection {
+  background: none;
+  padding: 80px 24px 40px; /* Increased padding for more breathing room */
+  text-align: center;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $primary-teal, transparent);
+    opacity: 0.6;
+  }
+}
+
+/* The text block at the top (heading + subheading) */
+.textBlock {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1244px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content vertically */
+  
+  /* Animation for the text block */
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Large gradient heading - removing text shadow for clarity */
+.gradientHeading {
+  font-size: 92px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  background: linear-gradient(90deg, $primary-teal, $white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Remove text-shadow to fix blurriness */
+  text-shadow: none;
+  margin-bottom: 16px;
+  text-align: center;
+  width: 100%;
+}
+
+/* Subheading in white color, centered */
+.subheading {
+  font-size: 24px;
+  line-height: 34px;
+  color: $white;
+  max-width: 986px;
+  margin: 32px auto 16px;
+  text-align: center;
+  text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.4);
+  font-weight: 500; /* Medium weight for better readability */
+  letter-spacing: 0.5px; /* Slightly increased letter spacing */
+  position: relative;
+  display: inline-block;
+  
+  /* Add the glowing underline */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, $primary-teal, transparent);
+    box-shadow: 0 0 15px $neon-glow-teal;
+  }
+}
+
+/* Section heading - removing text shadow for clarity */
+.sectionHeading {
+  font-size: 38px;
+  margin: 0 0 36px;
+  background: linear-gradient(90deg, $primary-teal, $white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Remove text-shadow to fix blurriness */
+  text-shadow: none;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+/* Main Content Area */
+.contentArea {
+  flex: 1;
+  padding: 0 24px;
+  max-width: 1244px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    margin-bottom: 24px; /* More space between paragraphs */
+    font-size: 17px; /* Slightly larger for better readability */
+    line-height: 1.7; /* Improved line height for readability */
+    max-width: 730px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9); /* Slightly softer white for better contrast */
+  }
+}
+
+/* The rounded box containing the main content */
+.missionBox {
+  width: 100%;
+  max-width: 1244px;
+  padding: 60px; /* More padding for breathing room */
+  background: linear-gradient(to bottom, rgba(0, 51, 51, 0.3), $dark-bg); /* Subtle gradient background */
+  border-radius: 32px; /* More rounded corners */
+  box-shadow: 0px 4px 42px $shadow-teal;
+  border: 1px solid $border-teal;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+  
+  /* Subtle background glow effect */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: radial-gradient(circle at 50% 0%, rgba(0, 255, 242, 0.15), transparent 70%);
+    z-index: 0;
+  }
+  
+  /* Make sure content is above the glow */
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* Section title - updating to gradient text without shadow */
+.sectionTitle {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 48px 0 24px;
+  /* Change to gradient text like hero section */
+  background: linear-gradient(90deg, $primary-teal, $white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Remove text-shadow to fix blurriness */
+  text-shadow: none;
+  letter-spacing: 0.5px;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+/* Bullet list styling */
+.bulletList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 40px;
+  max-width: 730px;
+  text-align: left;
+  
+  li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 16px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 10px;
+      height: 10px;
+      background-color: $primary-teal;
+      border-radius: 50%;
+      box-shadow: 0 0 8px $primary-teal;
+    }
+  }
+}
+
+/* Validator snapshot box */
+.validatorSnapshot {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid $border-teal;
+  border-radius: 16px;
+  padding: 24px;
+  margin: 30px 0;
+  width: 100%;
+  max-width: 730px;
+  
+  h4 {
+    font-size: 22px;
+    margin: 0 0 20px;
+    background: linear-gradient(90deg, $primary-teal, $white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .snapshotData {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    
+    .dataRow {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(0, 255, 242, 0.1);
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      .label {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 16px;
+      }
+      
+      .value {
+        color: $white;
+        font-weight: 500;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+/* Distribution stats - updating to gradient text without shadow */
+.distributionStats {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  margin: 40px 0;
+  width: 100%;
+  max-width: 730px;
+  
+  .statItem {
+    text-align: center;
+    flex: 1;
+    
+    .statValue {
+      font-size: 36px;
+      font-weight: 700;
+      background: linear-gradient(90deg, $primary-teal, $white);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: none;
+      margin-bottom: 8px;
+    }
+    
+    .statLabel {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+
+/* Validator metrics */
+.validatorMetrics {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+  
+  li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 255, 242, 0.1);
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    strong {
+      color: $primary-teal;
+      margin-right: 8px;
+    }
+  }
+}
+
+/* Call to action - removing text shadow */
+.callToAction {
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 48px;
+  color: $white;
+  text-align: center;
+  /* Remove text-shadow for clarity */
+  text-shadow: none;
+  padding: 24px;
+  border-radius: 12px;
+  background: linear-gradient(to right, rgba(0, 255, 242, 0.05), rgba(10, 207, 131, 0.05), rgba(0, 255, 242, 0.05));
+  border: 1px solid rgba(0, 255, 242, 0.1);
+}
+
+/* Truth token highlight - updating to be more subtle */
+.truthToken {
+  color: $green-highlight;
+  font-weight: 600;
+  /* Remove text-shadow for clarity */
+  text-shadow: none;
+  position: relative;
+  padding: 0 2px;
+  
+  /* Subtle underline effect */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: $green-highlight;
+    opacity: 0.5;
+  }
+}
+
+/* Go Back Button */
+.goBackButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px; /* More space between icon and text */
+  padding: 14px 28px; /* Larger button */
+  border: 1px solid rgba(0, 255, 242, 0.69);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 12px; /* More rounded corners */
+  color: $white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0px 1px 12px $primary-teal, 0px 0px 6px $primary-teal inset;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother animation */
+
+  &:hover {
+    box-shadow: 0px 1px 16px $primary-teal, 0px 0px 12px $primary-teal;
+    transform: scale(1.05) translateY(-2px); /* Slight lift effect */
+  }
+  
+  &:active {
+    transform: scale(0.98); /* Slight press effect */
+  }
+}
+
+.vectorIcon {
+  width: 14px; /* Slightly larger icon */
+  height: 22px;
+  transition: transform 0.3s ease;
+  
+  /* Arrow animation on hover */
+  .goBackButton:hover & {
+    transform: translateX(-4px);
+  }
+}
+
+/* Button Container for Go Back */
+.buttonContainer {
+  margin-top: 60px; /* More space above */
+  margin-bottom: 80px; /* More space below */
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 925px) {
+  .gradientHeading {
+    font-size: 56px; /* Adjusted size */
+  }
+
+  .subheading {
+    font-size: 20px; /* Slightly larger */
+  }
+
+  .contentArea p,
+  .subheading,
+  .bulletList {
+    max-width: 600px;
+  }
+
+  .bulletList {
+    margin-left: 12px;
+  }
+  
+  .missionBox {
+    padding: 40px; /* Less padding on smaller screens */
+  }
+  
+  .distributionStats {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .gradientHeading {
+    font-size: 42px; /* Adjusted size */
+  }
+
+  .subheading {
+    font-size: 18px; /* Slightly larger than current */
+  }
+
+  .contentArea p,
+  .subheading,
+  .bulletList {
+    max-width: 300px;
+  }
+
+  .bulletList {
+    margin-left: 8px;
+  }
+  
+  .missionBox {
+    padding: 30px; /* Adjusted padding */
+  }
+  
+  .sectionHeading {
+    font-size: 28px; /* Smaller but still impactful */
+  }
+  
+  .validatorSnapshot {
+    padding: 16px;
+  }
+}

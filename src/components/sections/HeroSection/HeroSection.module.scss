@@ -1,140 +1,396 @@
-/* src/styles/Hero.module.css */
+// Define variables for consistency
+$primary-teal: #00fff2;
+$white: #fff;
+$dark-bg: #000;
+$neon-glow-teal: rgba(0, 255, 242, 0.7);
+$border-teal: rgba(0, 255, 242, 0.24);
+$shadow-teal: rgba(0, 255, 242, 0.5);
 
+/* The main hero section */
 .heroSection {
   position: relative;
   width: 100%;
-  margin-top: 120px;
-  padding: 2rem 0;
-  background: url('/images/hero-bg.jpg') center top no-repeat;
-  background-size: cover;
-}
-
-.heroInner {
-  max-width: 1244px;
-  margin: 0 auto;
-  position: relative;
+  margin-top: 200px;
+  margin-bottom: 320px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  background: none;
+  z-index: 10;
 }
 
-.videoArea {
-  width: 100%;
-  margin-bottom: 40px;
+/* Hide any local backgrounds/overlays if you want the global background visible */
+.heroBackground {
+  display: none;
+}
+.heroOverlay {
+  display: none;
 }
 
-.verticalLine {
-  width: 2px;
-  height: 100px;
-  background: linear-gradient(180deg, #00FFF2 0%, #27FF57 100%);
-  margin: 20px 0;
-}
-
-.truthSection {
-  width: 100%;
+/* Headline + subheading */
+.textBlock {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 11;
 }
-
-.truthTitle {
-  font-size: 96px;
-  background: linear-gradient(90deg, #00fff2, #fff);
+.gradientHeading {
+  font-size: 80px;
+  background: linear-gradient(90deg, $primary-teal 0%, $primary-teal 35%, $white 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 
-    0px 0px 75.2px rgba(39, 255, 87, 0.86),
-    0px 4px 7px rgba(39, 255, 87, 0.53);
   margin-bottom: 24px;
 }
-
-.truthSubtitle {
-  font-size: 24px;
-  line-height: 34px;
-  max-width: 986px;
-  margin: 0 auto;
-  background: linear-gradient(90deg, #00fff2, #fff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0px 4px 23px rgba(0, 255, 242, 0.4);
+.subheading {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 36px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: $white;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  margin-top: 40px;
+  position: relative;
+  display: inline-block;
+  
+  /* Make the glowing underline shorter */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%; /* Make it shorter - only 30% of text width */
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $primary-teal, transparent);
+    box-shadow: 0 0 3px $neon-glow-teal;
+  }
 }
 
-.heroContent {
-  position: relative;
-  z-index: 3;
+/* A wrapper ("videoBox") around the video container for a black panel look */
+.videoBox {
   width: 100%;
+  max-width: 1244px;
+  padding: 40px;
+  background: #000; /* black background */
+  border-radius: 24px;
+  box-shadow: none;
+  border: 1px solid rgba(0, 255, 242, 0.24);
+  margin-bottom: 40px;
+  z-index: 11;
+}
+
+/* The container around the video */
+.videoContainer {
+  position: relative;
+  width: 100%;
+  height: 688px;
+  padding: 0; 
+  border-radius: 24px;
+  background-color: #000; /* black background inside container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 12;
+}
+
+.videoPlayer {
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  object-fit: cover;
+}
+
+/* The "VERA" tab at the top of the video */
+.veraTab {
+  position: absolute;
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000; /* black background */
+  padding: 8px 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 255, 242, 0.24);
+  box-shadow: none;
+  z-index: 13;
+  font-size: 48px;
+  text-transform: uppercase;
   text-align: center;
+  width: max-content;
+  margin: 0 auto;
+
+  span {
+    background: linear-gradient(90deg, #00aaff, #00fff2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0.5px 0 0 #00fff2,
+      0 0.5px 0 #00fff2,
+      -0.5px 0 0 #00fff2,
+      0 -0.5px 0 #00fff2;
+  }
+}
+
+/* 
+  SOCIAL ICONS BAR on the right side: 
+  changed background-color to black 
+  so it's visible on a dark background 
+*/
+.socialIconsContainer {
+  position: absolute;
+  right: -56px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #000; /* black background */
+  border-radius: 0 12px 12px 0;
+  padding: 16px 8px;
+
+  /* Optional teal border without glow */
+  border: 1px solid rgba(0, 255, 242, 0.24);
+  box-shadow: none;
+
+  z-index: 13;
+}
+
+.socialIcons {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 24px;
 }
 
-.gradientText {
-  font-size: 24px;
-  line-height: 1.4;
-  max-width: 800px;
-  background: linear-gradient(90deg, #00fff2, #fff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0px 4px 4px rgba(0, 255, 242, 0.4);
-}
-
-.ctaButton {
-  padding: 16px 48px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(0, 255, 242, 0.69);
-  border-radius: 8px;
-  box-shadow: 0px 0px 6px 2px #00fff2 inset;
+.iconWrapper {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {
-    box-shadow: 
-      0px 0px 6px 2px #00fff2 inset,
-      0px 0px 12px #00fff2;
+    transform: scale(1.1);
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
   }
 }
 
-.visitTheTerminal {
-  font-size: 16px;
-  color: #00fff2;
-  font-weight: 500;
-}
-
-.overlay {
-  /* Optional gradient or overlay if your design calls for it */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.445) 27.5%,
-    #000000 100%
-  );
-  pointer-events: none;
-}
-
-.content {
+/* "Visit the Terminal" button at the bottom - updated to match Staking button */
+.ctaButton {
+  padding: 16px 48px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 51, 51, 0.7));
+  border: 1px solid rgba(0, 255, 242, 0.8);
+  border-radius: 8px;
+  box-shadow: 
+    0px 0px 4px 1px $primary-teal inset,
+    0px 0px 10px rgba(0, 255, 242, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
   position: relative;
+  overflow: hidden;
+  z-index: 11;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1;
+    background: linear-gradient(45deg, $primary-teal, transparent, $primary-teal);
+    background-size: 400%;
+    border-radius: 10px;
+    opacity: 0;
+    transition: 0.5s;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 
+      0px 0px 6px 2px $primary-teal inset,
+      0px 0px 15px rgba(0, 255, 242, 0.4);
+    
+    &:before {
+      opacity: 1;
+      animation: animate 20s linear infinite;
+    }
+  }
+  
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Button text styling - added to match Staking button */
+.buttonText {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  background: linear-gradient(90deg, #00fff2, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1244px) {
+  .videoBox {
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroSection {
+    margin-top: 120px;
+    margin-bottom: 180px;
+  }
+  
+  .gradientHeading {
+    font-size: 48px;
+  }
+  
+  .subheading {
+    font-size: 20px;
+    line-height: 28px;
+    margin-top: 30px;
+  }
+  
+  .videoBox {
+    padding: 20px;
+    max-width: 90%;
+  }
+  
+  .videoContainer {
+    height: 400px;
+  }
+  
+  .socialIconsContainer {
+    display: none;
+  }
+  
+  .veraTab {
+    font-size: 36px;
+    top: -60px;
+    padding: 6px 18px;
+  }
+  
+  .ctaButton {
+    font-size: 20px;
+    padding: 12px 30px;
+  }
+  
+  .buttonText {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .heroSection {
+    margin-top: 100px;
+    margin-bottom: 120px;
+  }
+  
+  .gradientHeading {
+    font-size: 36px;
+  }
+  
+  .subheading {
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 24px;
+  }
+  
+  .videoBox {
+    padding: 15px;
+    max-width: 95%;
+  }
+  
+  .videoContainer {
+    height: 300px;
+  }
+  
+  .veraTab {
+    font-size: 28px;
+    top: -50px;
+    padding: 4px 14px;
+  }
+  
+  .ctaButton {
+    padding: 10px 24px;
+  }
+  
+  .buttonText {
+    font-size: 14px;
+  }
+}
+
+/* Improved performance for animations */
+.gradientHeading,
+.subheading,
+.videoBox,
+.ctaButton {
+  will-change: transform, opacity;
+}
+
+/* Loading state for the video */
+.videoContainer::before {
+  content: "Loading...";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(0, 255, 242, 0.7);
+  font-size: 24px;
   z-index: 1;
-  text-align: center;
-  max-width: 1200px; /* Helps constrain content on wide screens */
-  margin: 0 auto;
-  padding: 2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.truthGraphic {
-  max-width: 80%;
-  height: auto;
+.videoContainer.loading::before {
+  opacity: 1;
 }
 
-.subtext {
-  color: #fff;
-  margin-top: 1rem;
+/* Button focus state for accessibility */
+.ctaButton:focus-visible {
+  outline: 2px solid #00fff2;
+  outline-offset: 3px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

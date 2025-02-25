@@ -1,0 +1,627 @@
+// Define variables for consistency
+$dark-bg: #000;
+$teal-bg: #003333;
+$primary-teal: #00fff2;
+$white: #fff;
+$neon-glow-teal: rgba(0, 255, 242, 0.7);
+$subtle-glow-white: rgba(255, 255, 242, 0.3);
+$border-teal: rgba(0, 255, 242, 0.3);
+$shadow-teal: rgba(0, 255, 242, 0.5);
+$green-highlight: #0acf83;
+
+.roadmapPage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: $white;
+  font-family: "Inter", sans-serif;
+  padding-top: 120px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Hero Section */
+.heroSection {
+  background: none;
+  padding: 80px 24px 40px;
+  text-align: center;
+  position: relative;
+  
+  /* Decorative line under header */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $primary-teal, transparent);
+    opacity: 0.6;
+  }
+}
+
+.heroTitle {
+  font-size: 92px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  background: linear-gradient(90deg, $primary-teal, $white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  margin: 0 0 24px;
+  animation: scaleIn 1s ease-out;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.heroSubtitle {
+  font-size: 26px;
+  line-height: 1.5;
+  margin: 0 auto 16px;
+  max-width: 700px;
+  color: $white;
+  text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.4);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  animation: slideUp 1s ease-out;
+  position: relative;
+  display: inline-block;
+  
+  /* Add the glowing underline */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, $primary-teal, transparent);
+    box-shadow: 0 0 15px $neon-glow-teal;
+  }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Main Content Area */
+.contentArea {
+  flex: 1;
+  padding: 0 24px;
+  max-width: 1244px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    margin-bottom: 24px;
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 730px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  h3 {
+    font-size: 28px;
+    margin: 40px 0 20px;
+    background: linear-gradient(90deg, $primary-teal, $white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+    text-align: center;
+    letter-spacing: -0.5px;
+    width: 100%;
+  }
+}
+
+/* The rounded box containing the main content */
+.roadmapBox {
+  width: 100%;
+  max-width: 1244px;
+  padding: 60px;
+  background: linear-gradient(to bottom, rgba(0, 51, 51, 0.3), $dark-bg);
+  border-radius: 32px;
+  box-shadow: 0px 4px 42px $shadow-teal;
+  border: 1px solid $border-teal;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeSlideUp 0.8s ease-out;
+  
+  /* Subtle background glow effect */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: radial-gradient(circle at 50% 0%, rgba(0, 255, 242, 0.15), transparent 70%);
+    z-index: 0;
+  }
+  
+  /* Make sure content is above the glow */
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.roadmapList {
+  margin: 0 0 30px 0;
+  padding: 0;
+  list-style: none;
+  max-width: 730px;
+
+  li {
+    margin-bottom: 20px;
+    padding-left: 28px;
+    position: relative;
+    font-size: 17px;
+    line-height: 1.7;
+    
+    &:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: $primary-teal;
+      font-size: 24px;
+      top: -2px;
+    }
+    
+    strong {
+      color: $primary-teal;
+      font-weight: 600;
+      margin-right: 8px;
+    }
+  }
+}
+
+.longTermTitle {
+  font-size: 32px;
+  margin: 50px 0 24px;
+  background: linear-gradient(90deg, $primary-teal, $white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  
+  &::after {
+    display: none;
+  }
+}
+
+/* Enhanced Future Links Section - updated for better centering */
+.futureLinksContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin: 30px auto;
+  width: 100%;
+  max-width: 400px; /* Slightly narrower for better aesthetics */
+}
+
+.futureButton {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the content inside buttons */
+  gap: 12px;
+  width: 100%;
+  padding: 16px 24px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 51, 51, 0.7));
+  border: 1px solid rgba(0, 255, 242, 0.8);
+  border-radius: 8px;
+  box-shadow: 
+    0px 0px 4px 1px $primary-teal inset,
+    0px 0px 10px rgba(0, 255, 242, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1;
+    background: linear-gradient(45deg, $primary-teal, transparent, $primary-teal);
+    background-size: 400%;
+    border-radius: 10px;
+    opacity: 0;
+    transition: 0.5s;
+  }
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 
+      0px 0px 6px 2px $primary-teal inset,
+      0px 0px 15px rgba(0, 255, 242, 0.4);
+    
+    &:before {
+      opacity: 1;
+      animation: animate 20s linear infinite;
+    }
+    
+    .buttonIcon {
+      transform: scale(1.1);
+    }
+  }
+  
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.buttonText {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #00fff2, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+.buttonIcon {
+  transition: transform 0.3s ease;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Remove the old future list since we're replacing it */
+.futureList {
+  display: none;
+}
+
+/* Roadmap Cards */
+.cardsSection {
+  width: 100%;
+  background: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 0;
+  margin-bottom: 60px;
+  position: relative;
+  
+  /* Decorative vertical line connecting cards */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: linear-gradient(to bottom, 
+      transparent, 
+      rgba(0, 255, 242, 0.7) 10%, 
+      rgba(0, 255, 242, 0.7) 90%, 
+      transparent);
+    z-index: 0;
+  }
+}
+
+.cardsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  max-width: 1244px;
+  width: 100%;
+  padding: 0 16px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Each card stands alone: updated size and solid black background */
+.contentCard {
+  width: 340px;
+  height: 580px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 2px solid $border-teal;
+  background: $dark-bg;
+  box-shadow: 0px 0px 20px $shadow-teal;
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  
+  /* Dot connector to timeline */
+  &::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: $primary-teal;
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 15px $primary-teal;
+  }
+
+  &:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0px 0px 30px rgba(0, 255, 242, 0.8);
+    
+    .imageWrapper::after {
+      opacity: 0.3;
+    }
+  }
+}
+
+/* Left-aligned cards */
+.cardLeft {
+  align-self: flex-start;
+  margin-left: 15%;
+  
+  &::before {
+    right: -40px;
+    top: 50%;
+  }
+  
+  /* Connector line to timeline */
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -40px;
+    width: 40px;
+    height: 2px;
+    background: $primary-teal;
+    z-index: 1;
+  }
+}
+
+/* Right-aligned cards */
+.cardRight {
+  align-self: flex-end;
+  margin-right: 15%;
+  
+  &::before {
+    left: -40px;
+    top: 50%;
+  }
+  
+  /* Connector line to timeline */
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -40px;
+    width: 40px;
+    height: 2px;
+    background: $primary-teal;
+    z-index: 1;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  
+  /* Overlay glow effect on hover */
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, $primary-teal, transparent);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    mix-blend-mode: overlay;
+  }
+}
+
+/* Go Back Button */
+.goBackButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  border: 1px solid rgba(0, 255, 242, 0.69);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  color: $white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0px 1px 12px $primary-teal, 0px 0px 6px $primary-teal inset;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  &:hover {
+    box-shadow: 0px 1px 16px $primary-teal, 0px 0px 12px $primary-teal;
+    transform: scale(1.05) translateY(-2px);
+  }
+  
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.vectorIcon {
+  width: 14px;
+  height: 22px;
+  transition: transform 0.3s ease;
+  
+  /* Arrow animation on hover */
+  .goBackButton:hover & {
+    transform: translateX(-4px);
+  }
+}
+
+/* Button Container for Go Back */
+.buttonContainer {
+  margin-top: 60px;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 925px) {
+  .heroTitle {
+    font-size: 56px;
+  }
+
+  .heroSubtitle {
+    font-size: 22px;
+  }
+  
+  .roadmapBox {
+    padding: 40px;
+  }
+
+  .contentArea p,
+  .roadmapList li,
+  .futureList li {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .longTermTitle {
+    font-size: 28px;
+  }
+
+  .contentCard {
+    width: 300px;
+    height: 520px;
+  }
+  
+  .cardLeft {
+    margin-left: 10%;
+  }
+  
+  .cardRight {
+    margin-right: 10%;
+  }
+  
+  .cardsSection::before {
+    left: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cardsSection::before {
+    display: none;
+  }
+  
+  .cardLeft::after,
+  .cardRight::after,
+  .cardLeft::before,
+  .cardRight::before {
+    display: none;
+  }
+  
+  .futureButton {
+    padding: 14px 20px;
+  }
+  
+  .buttonText {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .cardLeft, .cardRight {
+    align-self: center;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .heroSection {
+    padding: 60px 16px 30px;
+  }
+  
+  .roadmapBox {
+    padding: 30px;
+  }
+  
+  .cardsContainer {
+    gap: 50px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .heroTitle {
+    font-size: 42px;
+  }
+
+  .heroSubtitle {
+    font-size: 18px;
+  }
+
+  .contentArea p,
+  .roadmapList li,
+  .futureList li {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .longTermTitle {
+    font-size: 24px;
+  }
+
+  .contentCard {
+    width: 260px;
+    height: 450px;
+  }
+  
+  .roadmapBox {
+    padding: 24px;
+  }
+  
+  .goBackButton {
+    padding: 12px 24px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .futureButton {
+    padding: 12px 16px;
+  }
+  
+  .buttonText {
+    font-size: 14px;
+  }
+}

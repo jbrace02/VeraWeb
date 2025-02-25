@@ -1,0 +1,876 @@
+// Define variables for consistency
+$primary-teal: #00fff2;
+$white: #fff;
+$dark-bg: #000;
+$neon-glow-teal: rgba(0, 255, 242, 0.7);
+$border-teal: rgba(0, 255, 242, 0.24);
+$shadow-teal: rgba(0, 255, 242, 0.5);
+$green-highlight: #0acf83;
+$locked-blue: #4A90E2;
+$free-teal: #00FFF2;
+
+/* Main tokenomics page container */
+.tokenomicsPage {
+  color: $white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Inter", sans-serif;
+  padding-top: 120px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Top header section */
+.headerSection {
+  background: none;
+  padding: 80px 24px 40px; /* Increased padding for breathing room */
+  text-align: center;
+  position: relative;
+  
+  /* Decorative line under header */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $primary-teal, transparent);
+    opacity: 0.6;
+  }
+
+  h1 {
+    font-size: 92px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(90deg, $primary-teal, $white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+    margin-bottom: 24px;
+    animation: scaleIn 1s ease-out;
+  }
+
+  p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 22px;
+    line-height: 1.6;
+    color: $white;
+    text-shadow: none;
+    font-weight: 500;
+    animation: slideUp 1s ease-out;
+  }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Main content area */
+.contentArea {
+  flex: 1;
+  padding: 0 24px;
+  max-width: 1244px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    margin: 0 0 24px; /* More space between paragraphs */
+    font-size: 17px; /* Slightly larger for better readability */
+    line-height: 1.7; /* Improved line height */
+    color: rgba(255, 255, 255, 0.9); /* Slightly softer white */
+    text-align: center;
+
+    strong:where(:not(.dot)) {
+      color: $green-highlight;
+    }
+
+    &.centeredBlueText {
+      text-align: center;
+      color: $white;
+
+      span.blueText {
+        color: $primary-teal;
+        text-shadow: 0px 0px 6px rgba(0, 255, 242, 0.3);
+        font-weight: 600; /* Semibold */
+      }
+    }
+  }
+
+  h2 {
+    font-size: 38px;
+    margin-bottom: 24px;
+    font-weight: 700;
+    background: linear-gradient(90deg, $primary-teal, $white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+    text-align: center;
+    letter-spacing: -0.5px;
+  }
+
+  h3 {
+    font-size: 28px;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    background: linear-gradient(90deg, $primary-teal, $white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+    text-align: center;
+    letter-spacing: -0.5px;
+  }
+
+  h4 {
+    font-size: 22px;
+    margin: 32px 0 20px;
+    background: linear-gradient(90deg, $primary-teal, $white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    
+    /* Decorative line under heading */
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 2px;
+      background: $primary-teal;
+      box-shadow: 0 0 8px $primary-teal;
+    }
+  }
+
+  ul {
+    margin: 0 auto 24px; /* More space below */
+    padding: 0;
+    list-style-type: disc;
+    max-width: 730px;
+    text-align: center;
+  }
+
+  .contentBlock {
+    margin-bottom: 50px; /* More space between blocks */
+    width: 100%;
+    max-width: 800px;
+    animation: fadeSlideUp 0.8s ease-out;
+    animation-fill-mode: both;
+    
+    /* Staggered animation for content blocks */
+    @for $i from 1 through 7 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.1}s;
+      }
+    }
+  }
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Enhanced pie chart styling */
+.pieChartContainer {
+  position: relative;
+  text-align: center;
+  margin: 60px auto 80px; /* More space around chart */
+  width: 100%;
+  max-width: 500px;
+  animation: fadeIn 1s ease-out 0.3s;
+  animation-fill-mode: both;
+}
+
+.pieChart {
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: conic-gradient(
+    $locked-blue 0% 0.7%,
+    $free-teal 0.7% 100%
+  );
+  box-shadow: 
+    0 0 30px rgba(0, 255, 242, 0.3),
+    0 0 60px rgba(0, 255, 242, 0.1);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 
+      0 0 40px rgba(0, 255, 242, 0.4),
+      0 0 80px rgba(0, 255, 242, 0.2);
+  }
+}
+
+// Labels inside the pie chart
+.pieChartLabels {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.freeLabel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $dark-bg;
+  font-size: 32px;
+  font-weight: 800;
+  text-shadow: none;
+}
+
+.lockedLabel {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  color: $white;
+  font-size: 16px;
+  font-weight: 600;
+  text-shadow: none;
+}
+
+// Legend below the chart
+.pieChartLegend {
+  margin-top: 40px; /* More space above */
+  display: flex;
+  justify-content: center;
+  gap: 60px; /* More space between items */
+  font-size: 20px; /* Larger text */
+  font-weight: 600;
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* More space between dot and text */
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-3px); /* Slight lift on hover */
+    }
+    
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 20px; /* Larger dot */
+      height: 20px;
+      border-radius: 4px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    &:hover::before {
+      transform: scale(1.2); /* Grow dot on hover */
+    }
+    
+    &.locked {
+      color: $white;
+      
+      &::before {
+        background-color: $locked-blue;
+        box-shadow: 0 0 10px rgba(74, 144, 226, 0.7);
+      }
+      
+      &:hover::before {
+        box-shadow: 0 0 15px rgba(74, 144, 226, 0.9);
+      }
+    }
+    
+    &.free {
+      color: $white;
+      
+      &::before {
+        background-color: $free-teal;
+        box-shadow: 0 0 10px rgba(0, 255, 242, 0.7);
+      }
+      
+      &:hover::before {
+        box-shadow: 0 0 15px rgba(0, 255, 242, 0.9);
+      }
+    }
+  }
+}
+
+/* Pie chart title - removing it completely */
+.pieChartTitle {
+  display: none; /* Hide the redundant title */
+}
+
+/* The black box around main content */
+.tokenomicsBox {
+  width: 100%;
+  max-width: 1244px;
+  padding: 60px; /* More padding for breathing room */
+  background: linear-gradient(to bottom, rgba(0, 51, 51, 0.3), $dark-bg); /* Subtle gradient background */
+  border-radius: 32px; /* More rounded corners */
+  box-shadow: 0px 4px 42px $shadow-teal;
+  border: 1px solid $border-teal;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  
+  /* Subtle background glow effect */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: radial-gradient(circle at 50% 0%, rgba(0, 255, 242, 0.15), transparent 70%);
+    z-index: 0;
+  }
+  
+  /* Make sure content is above the glow */
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* Centered and blue text for Vote Account */
+.centeredBlueText {
+  text-align: center;
+  color: $white;
+  background: rgba(0, 0, 0, 0.3); /* Subtle background */
+  padding: 12px 20px; /* Add padding */
+  border-radius: 8px; /* Rounded corners */
+  border: 1px solid rgba(0, 255, 242, 0.1); /* Subtle border */
+  display: inline-block; /* Allow for padding */
+  margin: 8px 0 24px; /* Space around */
+
+  span.blueText {
+    color: $primary-teal;
+    text-shadow: 0px 0px 6px rgba(0, 255, 242, 0.3);
+    font-family: monospace; /* Monospace for code-like appearance */
+    letter-spacing: 0.5px; /* Slightly increased letter spacing */
+  }
+}
+
+/* $TRUTH token styling */
+.truthToken {
+  color: $green-highlight;
+  font-weight: 600;
+  text-shadow: 0px 0px 8px rgba(10, 207, 131, 0.5);
+  position: relative;
+  padding: 0 2px; /* Slight padding */
+  
+  /* Subtle underline effect */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: $green-highlight;
+    opacity: 0.5;
+  }
+}
+
+/* Validator metrics styling */
+.validatorMetrics {
+  list-style: none !important;
+  padding: 24px !important; /* More padding */
+  margin: 32px 0 !important; /* More margin */
+  text-align: center;
+  background: rgba(0, 255, 242, 0.05); /* Subtle background */
+  border-radius: 16px; /* More rounded corners */
+  border: 1px solid rgba(0, 255, 242, 0.2); /* Subtle border */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 255, 242, 0.2);
+  }
+
+  li {
+    margin: 16px 0; /* More space between items */
+    color: $white;
+    font-size: 17px; /* Slightly larger */
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    strong {
+      color: $primary-teal;
+      margin-right: 8px;
+      margin-bottom: 6px; /* More space below */
+      font-size: 18px; /* Larger label */
+      letter-spacing: 0.5px; /* Slightly increased letter spacing */
+    }
+    
+    span {
+      font-weight: 500; /* Medium weight */
+    }
+  }
+}
+
+/* Future of Truth list */
+.futureOfTruth {
+  list-style: none !important;
+  padding: 24px !important; /* More padding */
+  margin: 32px 0 !important; /* More margin */
+  background: rgba(0, 255, 242, 0.05); /* Subtle background */
+  border-radius: 16px; /* More rounded corners */
+  border: 1px solid rgba(0, 255, 242, 0.2); /* Subtle border */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 255, 242, 0.2);
+  }
+  
+  li {
+    margin: 20px 0; /* More space between items */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    strong {
+      color: $primary-teal;
+      margin-bottom: 8px; /* More space below */
+      font-size: 18px; /* Larger text */
+      letter-spacing: 0.5px; /* Slightly increased letter spacing */
+    }
+    
+    span {
+      font-weight: 500; /* Medium weight */
+      font-size: 17px; /* Slightly larger */
+      line-height: 1.6;
+    }
+  }
+}
+
+/* Button container */
+.buttonContainer {
+  margin-top: 60px; /* More space above */
+  margin-bottom: 40px; /* Space below */
+  display: flex;
+  justify-content: center;
+  gap: 32px; /* More space between buttons */
+}
+
+/* Go Back Button */
+.goBackButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px; /* More space between icon and text */
+  padding: 14px 28px; /* Larger button */
+  border: 1px solid rgba(0, 255, 242, 0.69);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 12px; /* More rounded corners */
+  color: $white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0px 1px 12px $primary-teal, 0px 0px 6px $primary-teal inset;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother animation */
+
+  &:hover {
+    box-shadow: 0px 1px 16px $primary-teal, 0px 0px 12px $primary-teal;
+    transform: scale(1.05) translateY(-2px); /* Slight lift effect */
+  }
+  
+  &:active {
+    transform: scale(0.98); /* Slight press effect */
+  }
+}
+
+.vectorIcon {
+  width: 14px; /* Slightly larger icon */
+  height: 22px;
+  transition: transform 0.3s ease;
+  
+  /* Arrow animation on hover */
+  .goBackButton:hover & {
+    transform: translateX(-4px);
+  }
+}
+
+/* "stakeButton" styling */
+.stakeButton {
+  padding: 16px 48px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 255, 242, 0.69);
+  border-radius: 12px; /* More rounded corners */
+  box-shadow: 0px 0px 6px 2px $primary-teal inset;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother animation */
+  position: relative;
+  overflow: hidden;
+
+  /* Subtle glow effect on hover */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0, 255, 242, 0.2), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 6px 2px $primary-teal inset, 0px 0px 16px $primary-teal;
+    transform: scale(1.05) translateY(-2px); /* Slight lift effect */
+    
+    &::before {
+      opacity: 1;
+    }
+  }
+  
+  &:active {
+    transform: scale(0.98); /* Slight press effect */
+  }
+}
+
+.buttonText {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px; /* Slightly larger */
+  color: $primary-teal;
+  letter-spacing: 1px;
+  font-weight: 600; /* Semibold */
+  position: relative; /* To appear above the glow effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .headerSection h1 {
+    font-size: 56px; /* Adjusted size */
+  }
+  
+  .headerSection p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  
+  .tokenomicsBox {
+    padding: 40px; /* Less padding on smaller screens */
+  }
+  
+  .pieChart {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .freeLabel {
+    font-size: 26px;
+  }
+  
+  .lockedLabel {
+    font-size: 16px;
+  }
+  
+  .pieChartLegend {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+  
+  .contentArea h2 {
+    font-size: 32px;
+  }
+  
+  .contentArea h3 {
+    font-size: 24px;
+  }
+  
+  .pieChartTitle {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerSection h1 {
+    font-size: 42px;
+  }
+  
+  .headerSection p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .contentArea p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .pieChart {
+    width: 240px;
+    height: 240px;
+  }
+  
+  .buttonContainer {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .validatorMetrics li {
+    font-size: 16px;
+  }
+  
+  .contentArea h2 {
+    font-size: 28px;
+  }
+  
+  .contentArea h3 {
+    font-size: 22px;
+  }
+  
+  .pieChartTitle {
+    font-size: 24px;
+  }
+  
+  .tokenomicsBox {
+    padding: 30px;
+  }
+}
+
+/* Add these styles to your existing Tokenomics.module.scss file */
+
+.centeredHeading {
+  text-align: center;
+  margin: 40px auto 24px;
+  color: $primary-teal;
+  font-size: 22px;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: $primary-teal;
+    box-shadow: 0 0 8px $primary-teal;
+  }
+}
+
+.centeredBlueText {
+  text-align: center;
+  color: $white;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 255, 242, 0.1);
+  display: inline-block;
+  margin: 8px auto 24px;
+  
+  .blueLabel {
+    color: $white;
+    margin-right: 8px;
+    font-weight: 500;
+  }
+  
+  .blueText {
+    color: $primary-teal;
+    text-shadow: 0px 0px 6px rgba(0, 255, 242, 0.3);
+    font-family: monospace;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-top: 4px;
+  }
+}
+
+.validatorHeadingContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 40px 0 24px;
+}
+
+.validatorHeading {
+  font-size: 22px;
+  color: $primary-teal;
+  font-weight: 600;
+  text-shadow: none;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: $primary-teal;
+    box-shadow: 0 0 8px $primary-teal;
+  }
+}
+
+.voteAccountContainer {
+  text-align: center;
+  margin: 24px auto;
+  padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 255, 242, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+}
+
+.voteAccountLabel {
+  color: $white;
+  font-weight: 500;
+  font-size: 17px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.voteAccountValue {
+  color: $primary-teal;
+  font-family: monospace;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-shadow: none;
+  word-break: break-all;
+  text-align: center;
+}
+
+/* Enhanced Stake Button */
+.enhancedStakeButton {
+  position: relative;
+  padding: 16px 48px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 51, 51, 0.8));
+  border: 1px solid rgba(0, 255, 242, 0.8);
+  border-radius: 12px;
+  box-shadow: 
+    0px 0px 10px 2px rgba(0, 255, 242, 0.4),
+    0px 0px 20px rgba(0, 255, 242, 0.2);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  
+  &:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 
+      0px 0px 15px 3px rgba(0, 255, 242, 0.5),
+      0px 0px 30px rgba(0, 255, 242, 0.3);
+      
+    .buttonGlow {
+      opacity: 0.8;
+    }
+    
+    .buttonText {
+      text-shadow: 0 0 10px rgba(0, 255, 242, 0.8);
+    }
+  }
+  
+  &:active {
+    transform: translateY(2px) scale(0.98);
+  }
+}
+
+.buttonGlow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 255, 242, 0.4), transparent 70%);
+  opacity: 0.4;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.buttonText {
+  position: relative;
+  z-index: 1;
+  font-size: 18px;
+  font-weight: 600;
+  background: linear-gradient(90deg, $primary-teal, $white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  transition: all 0.4s ease;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive adjustments for the new elements */
+@media (max-width: 768px) {
+  .validatorHeading {
+    font-size: 20px;
+  }
+  
+  .voteAccountValue {
+    font-size: 14px;
+  }
+  
+  .enhancedStakeButton {
+    padding: 14px 36px;
+  }
+  
+  .buttonText {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .validatorHeading {
+    font-size: 18px;
+  }
+  
+  .voteAccountContainer {
+    padding: 12px 16px;
+  }
+  
+  .voteAccountLabel {
+    font-size: 16px;
+  }
+  
+  .voteAccountValue {
+    font-size: 12px;
+  }
+  
+  .enhancedStakeButton {
+    padding: 12px 30px;
+  }
+  
+  .buttonText {
+    font-size: 15px;
+  }
+}

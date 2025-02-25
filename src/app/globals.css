@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+/* globals.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
 
 :root {
   --max-width: 1200px;
@@ -6,25 +8,98 @@
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+
+  --header-height: 120px;
+  --header-height-scrolled: 80px;
+  --header-bg-default: rgba(0, 0, 0, 0.5);
+  --header-bg-scrolled: rgba(0, 0, 0, 0.8);
+  --header-blur-default: 10px;
+  --header-blur-scrolled: 12px;
 }
 
+/* Basic resets */
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+/* Main site background: dark blue/teal color */
 body {
-  color: #333;
-  background: #fff;
+  color: #fff;
+  background: #080808; /* Dark blue/teal base instead of teal */
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Optional radial glow behind entire site - with will-change for animation performance */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 242, 0.15) 30%,
+    rgba(0, 0, 0, 0.9) 80%
+  );
+  z-index: -1;
+  will-change: opacity;
+}
+
+.abstractGreenBackgroundLigh,
+.background-overlay {
+  display: none;
+}
+
+/* Reusable neon + gradient text classes - with improved performance */
+.neon-text {
+  text-shadow: 0 0 10px rgba(0, 255, 150, 0.6);
+  font-weight: 600;
+}
+.gradient-text {
+  background: linear-gradient(90deg, #00fff2, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(0, 255, 242, 0.7);
+  will-change: transform, opacity;
+}
+
+/* Example hover effect for .button elements - with performance optimizations */
+.button:hover {
+  box-shadow: 0 0 12px rgba(0, 255, 150, 0.8);
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Container helper (optional) */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* Optional "scanline" effect with improved performance */
+.scanline {
+  background: repeating-linear-gradient(
+    transparent 0px,
+    rgba(0, 255, 242, 0.1) 2px,
+    transparent 4px
+  );
+  opacity: 0.2;
+  mix-blend-mode: overlay;
+  will-change: opacity;
 }
 
 a {
@@ -32,20 +107,105 @@ a {
   text-decoration: none;
 }
 
-/* For Webkit browsers */
+/* Reduced motion preference support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Scrollbar styling with improved colors for accessibility */
 ::-webkit-scrollbar {
   width: 10px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #111;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: rgba(0, 255, 242, 0.5);
   border-radius: 5px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: rgba(0, 255, 242, 0.7);
 }
+
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+  :root {
+    --header-height: 100px;
+    --header-height-scrolled: 70px;
+  }
+  
+  .container {
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --header-height: 80px;
+    --header-height-scrolled: 60px;
+  }
+  
+  body::before {
+    background: radial-gradient(
+      circle,
+      rgba(0, 255, 242, 0.12) 20%,
+      rgba(0, 0, 0, 0.92) 70%
+    );
+  }
+  
+  .gradient-text {
+    text-shadow: 0 0 15px rgba(0, 255, 242, 0.6);
+  }
+  
+  .neon-text {
+    text-shadow: 0 0 8px rgba(0, 255, 150, 0.5);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --header-height: 70px;
+    --header-height-scrolled: 50px;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  body::before {
+    background: radial-gradient(
+      circle,
+      rgba(0, 255, 242, 0.1) 10%,
+      rgba(0, 0, 0, 0.95) 60%
+    );
+  }
+}
+
+/* Extreme small screen support */
+@media screen and (max-width: 350px) {
+  :root {
+    --header-height: 60px;
+    --header-height-scrolled: 45px;
+  }
+  
+  .container {
+    padding: 0 10px;
+  }
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid #00fff2;
+  outline-offset: 2px;
+}
+
+
+
+
+
+

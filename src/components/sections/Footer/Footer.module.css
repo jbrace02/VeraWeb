@@ -1,0 +1,203 @@
+/* Footer.module.css */
+
+.footer {
+  width: 100%;
+  background-color: #000; /* Keeping the black background as requested for contrast */
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  padding: 0 24px 40px; /* Restore some horizontal padding */
+  box-sizing: border-box;
+  z-index: 10; /* Ensure it renders on top of background layers (-10 to -2 in globals.css) */
+  position: relative; /* Ensure z-index applies correctly */
+}
+
+.footerLine {
+  /* Teal horizontal line */
+  width: 100%;
+  border-top: 1px solid #00fff2;
+  box-sizing: border-box;
+  /* If you want spacing around the line, add margin. Example: */
+  margin: 16px 0 24px;
+  z-index: 11; /* Ensure line renders on top of footer but below other content if needed */
+}
+
+.footerInner {
+  max-width: 1244px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap; /* columns stack on smaller screens */
+  gap: 40px;
+  z-index: 11; /* Ensure content renders on top of footer background */
+  position: relative;
+  padding: 0 0 0 24px; /* Add a small padding to the left of the container */
+}
+
+/* Left Column - Adjusted for slight right movement */
+.leftColumn {
+  flex: 1;
+  min-width: 120px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: 0;
+  position: relative;
+  z-index: 12;
+}
+
+/* Center Column - disclaimers */
+.centerColumn {
+  flex: 2; /* bigger for disclaimers text */
+  min-width: 300px;
+  z-index: 12; /* Ensure text renders on top */
+}
+
+/* Right Column - community links */
+.rightColumn {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 12; /* Ensure content renders on top */
+}
+
+.footerLogo {
+  transition: transform 0.3s ease;
+  width: 140px; /* Match header logo width */
+  height: 140px; /* Match header logo height */
+  object-fit: cover;
+  margin-left: -160px; /* Reduced negative margin to move slightly to the right */
+}
+
+.footerLogo:hover {
+  transform: scale(1.05);
+}
+
+.disclaimerText {
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 22px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footerHeading {
+  margin: 0 0 20px;
+  font-size: 22px;
+  line-height: 28px;
+  font-family: 'Digital-7', sans-serif;
+  background: linear-gradient(90deg, #00fff2, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+/* Enhanced social buttons */
+.socialButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  z-index: 13;
+}
+
+.socialButton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 255, 242, 0.4);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+}
+
+.socialButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 0px 12px rgba(0, 255, 242, 0.6);
+  background: rgba(0, 0, 0, 0.8);
+  border-color: rgba(0, 255, 242, 0.8);
+}
+
+/* Media queries */
+@media screen and (max-width: 1024px) {
+  .footerLogo {
+    width: 120px;
+    height: 120px;
+    margin-left: -115px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footerInner {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .leftColumn, .centerColumn, .rightColumn {
+    width: 100%;
+    min-width: 100%;
+  }
+  
+  .leftColumn {
+    margin-left: 0; /* Reset margin for centered mobile view */
+    margin-right: 0;
+    justify-content: center;
+  }
+  
+  .centerColumn {
+    text-align: center;
+  }
+  
+  .rightColumn {
+    align-items: center;
+  }
+  
+  .socialButtons {
+    max-width: 300px;
+  }
+  
+  .disclaimerText {
+    font-size: 13px;
+    line-height: 20px;
+  }
+  
+  .footerLogo {
+    width: 100px;
+    height: 100px;
+    margin-left: 0; /* Reset margin for centered mobile view */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    padding: 0 16px 30px;
+  }
+  
+  .footerLine {
+    margin: 12px 0 20px;
+  }
+  
+  .footerHeading {
+    font-size: 18px;
+  }
+  
+  .disclaimerText {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  
+  .socialButton {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  
+  .footerLogo {
+    width: 80px; /* Match header's responsive size */
+    height: 80px;
+  }
+}
+  
