@@ -18,6 +18,7 @@ $free-teal: #00FFF2;
   font-family: "Inter", sans-serif;
   padding-top: 120px;
   animation: fadeIn 0.8s ease-out;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
 }
 
 @keyframes fadeIn {
@@ -782,6 +783,8 @@ $free-teal: #00FFF2;
   margin: 30px auto; /* Center horizontally with margin */
   display: block; /* Make it a block element */
   width: fit-content; /* Size based on content */
+  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on iOS */
+  touch-action: manipulation; /* Optimization for touch */
   
   &:hover {
     transform: translateY(-5px) scale(1.05);
@@ -870,5 +873,39 @@ $free-teal: #00FFF2;
   
   .buttonText {
     font-size: 15px;
+  }
+}
+
+/* iOS specific fixes */
+@supports (-webkit-touch-callout: none) {
+  /* Apply padding to account for the safe area on iOS devices */
+  .tokenomicsPage {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  /* Fix iOS button appearance */
+  .enhancedStakeButton, 
+  .goBackButton {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  
+  /* Improve scrolling performance on iOS */
+  .tokenomicsTable,
+  .contentArea {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Fix iOS text rendering issues */
+  .buttonText,
+  .statValue,
+  .validatorHeading,
+  .contentArea h2,
+  .contentArea h3 {
+    /* Prevent blurry text in iOS */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
