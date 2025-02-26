@@ -11,20 +11,12 @@ const interFont = localFont({
 });
 
 const Staking: NextPage = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [, setIsVisible] = useState(false);
 
   // Animation effect when component mounts
   useEffect(() => {
     setIsVisible(true);
   }, []);
-
-  // Handle stake button click
-  const handleStakeClick = () => {
-    window.open(
-      "https://stakewiz.com/validator/TrutHUEykD2UsmAq7W3hA4r3XiQxGLqhENAwo9522xa",
-      "_blank"
-    );
-  };
 
   return (
     <section className={`${styles.stakingSection} ${interFont.className}`}>

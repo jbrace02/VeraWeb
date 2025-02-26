@@ -18,16 +18,8 @@ export default function RoadmapPage() {
     router.back();
   };
 
-  // Handle stake button click
-  const handleStakeClick = () => {
-    window.open("https://stake.verafy.io", "_blank");
-  };
-
-  // Handle terminal button click
-  const handleTerminalClick = () => {
-    window.open("/truth-terminal/index.html", "_blank");
-  };
-
+  // Removing unused functions
+  
   return (
     <main className={styles.roadmapPage}>
       {/* Hero Section */}
