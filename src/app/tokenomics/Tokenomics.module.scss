@@ -22,6 +22,7 @@ $free-teal: #00FFF2;
   overflow-x: hidden; /* Prevent horizontal scrolling */
   width: 100%;
   max-width: 100vw; /* Ensure no content bleeds outside viewport */
+  margin: 0 auto; /* Center the entire page horizontally */
   box-sizing: border-box;
 }
 
@@ -37,6 +38,8 @@ $free-teal: #00FFF2;
   text-align: center;
   position: relative;
   width: 100%;
+  max-width: 1244px; /* Match contentArea max-width for consistency */
+  margin: 0 auto; /* Center the header section */
   box-sizing: border-box;
   
   /* Decorative line under header */
@@ -92,8 +95,8 @@ $free-teal: #00FFF2;
 .contentArea {
   flex: 1;
   padding: 0 24px;
-  max-width: 1244px;
-  margin: 0 auto;
+  max-width: 1244px; /* Ensure consistent maximum width */
+  margin: 0 auto; /* Center the content area */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -213,14 +216,16 @@ $free-teal: #00FFF2;
   text-align: center;
   margin: 60px auto 80px; /* More space around chart */
   width: 100%;
-  max-width: 500px;
+  max-width: 500px; /* Reduced to prevent overflow on mobile */
   animation: fadeIn 1s ease-out 0.3s;
   animation-fill-mode: both;
 }
 
 .pieChart {
-  width: 400px;
-  height: 400px;
+  width: 100%; /* Make responsive to container */
+  max-width: 400px; /* Limit maximum size */
+  height: auto; /* Maintain aspect ratio */
+  aspect-ratio: 1/1; /* Ensure circular shape */
   margin: 0 auto;
   border-radius: 50%;
   background: conic-gradient(
@@ -344,7 +349,7 @@ $free-teal: #00FFF2;
 /* The black box around main content */
 .tokenomicsBox {
   width: 100%;
-  max-width: 1244px;
+  max-width: 1244px; /* Match contentArea max-width for consistency */
   padding: 60px;
   background: linear-gradient(to bottom, rgba(0, 51, 51, 0.3), $dark-bg);
   border-radius: 32px;
@@ -599,6 +604,10 @@ $free-teal: #00FFF2;
 
 /* Additional responsive breakpoints */
 @media (max-width: 1024px) {
+  .headerSection {
+    max-width: 90%; /* Slightly reduce for smaller desktops */
+  }
+  
   .headerSection h1 {
     font-size: 72px;
   }
@@ -615,6 +624,7 @@ $free-teal: #00FFF2;
 @media (max-width: 768px) {
   .headerSection {
     padding: 60px 16px 30px;
+    max-width: 90%; /* Ensure centering on tablets */
   }
   
   .headerSection h1 {
@@ -625,6 +635,10 @@ $free-teal: #00FFF2;
     font-size: 18px;
   }
   
+  .contentArea {
+    padding: 0 16px;
+  }
+  
   .contentArea h2 {
     font-size: 30px;
   }
@@ -633,11 +647,16 @@ $free-teal: #00FFF2;
     padding: 30px;
     border-radius: 24px;
   }
+  
+  .pieChart {
+    max-width: 300px; /* Reduce pie chart size for tablets */
+  }
 }
 
 @media (max-width: 480px) {
   .headerSection {
     padding: 40px 16px 20px;
+    max-width: 90%; /* Ensure centering on smaller screens */
   }
   
   .headerSection h1 {
@@ -684,10 +703,19 @@ $free-teal: #00FFF2;
   .voteAccountValue {
     font-size: 11px;
   }
+  
+  .pieChart {
+    max-width: 250px; /* Further reduce pie chart for mobile */
+  }
 }
 
 /* iPhone SE and other very small devices */
 @media (max-width: 375px) {
+  .headerSection {
+    padding: 40px 12px 20px;
+    max-width: 90%; /* Ensure centering on very small screens */
+  }
+  
   .headerSection h1 {
     font-size: 32px;
   }
@@ -719,9 +747,235 @@ $free-teal: #00FFF2;
     word-break: break-all;
     font-size: 10px;
   }
+  
+  .pieChart {
+    max-width: 200px; /* Smallest pie chart size for very small screens */
+  }
 }
 
-/* Add these styles to your existing Tokenomics.module.scss file */
+/* iOS specific fixes */
+@supports (-webkit-touch-callout: none) {
+  /* Apply padding to account for the safe area on iOS devices */
+  .tokenomicsPage {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  /* Fix iOS button appearance */
+  .enhancedStakeButton, 
+  .goBackButton {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  
+  /* Improve scrolling performance on iOS */
+  .tokenomicsTable,
+  .contentArea {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Fix iOS text rendering issues */
+  .buttonText,
+  .statValue,
+  .validatorHeading,
+  .contentArea h2,
+  .contentArea h3 {
+    /* Prevent blurry text in iOS */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Chart section specifically */
+.tokenAllocationChart {
+  width: 100%;
+  max-width: 600px;
+  margin: 40px auto;
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.chartContainer {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+  position: relative;
+  margin: 0 auto;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure the chart image is properly contained */
+.chartImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+}
+
+/* Chart labels positioned at center */
+.chartLabels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.chartLabel {
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  position: absolute;
+}
+
+/* Specifically position the "Free" label */
+.freeLabel {
+  bottom: 40%;
+  color: $white;
+  font-size: 36px;
+  width: 100%;
+  text-align: center;
+}
+
+.freeValue {
+  top: 50%;
+  color: $free-teal;
+  font-size: 42px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Specifically position the "Locked" label */
+.lockedLabel {
+  top: 15%;
+  right: 30%;
+  color: $locked-blue;
+  font-size: 18px;
+}
+
+/* Legend items */
+.chartLegend {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legendColor {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  
+  &.locked {
+    background-color: $locked-blue;
+  }
+  
+  &.free {
+    background-color: $free-teal;
+  }
+}
+
+.legendText {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.legendValue {
+  margin-left: 4px;
+  font-weight: 700;
+}
+
+/* Add specific media queries for the chart */
+@media (max-width: 768px) {
+  .chartContainer {
+    max-width: 300px;
+  }
+  
+  .freeLabel {
+    font-size: 28px;
+    bottom: 45%;
+  }
+  
+  .freeValue {
+    font-size: 34px;
+  }
+  
+  .lockedLabel {
+    font-size: 16px;
+    top: 20%;
+    right: 25%;
+  }
+  
+  .chartLegend {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chartContainer {
+    max-width: 250px; /* Further reduce for smaller screens */
+  }
+  
+  .freeLabel {
+    font-size: 24px;
+    bottom: 47%;
+  }
+  
+  .freeValue {
+    font-size: 28px;
+  }
+  
+  .lockedLabel {
+    font-size: 14px;
+    top: 25%;
+    right: 22%;
+  }
+  
+  .legendItem {
+    font-size: 14px;
+  }
+}
+
+/* iPhone SE and very small devices */
+@media (max-width: 375px) {
+  .chartContainer {
+    max-width: 200px;
+  }
+  
+  .freeLabel {
+    font-size: 20px;
+  }
+  
+  .freeValue {
+    font-size: 24px;
+  }
+  
+  .lockedLabel {
+    font-size: 12px;
+  }
+}
 
 .centeredHeading {
   text-align: center;
@@ -914,229 +1168,5 @@ $free-teal: #00FFF2;
   
   .buttonText {
     font-size: 15px;
-  }
-}
-
-/* iOS specific fixes */
-@supports (-webkit-touch-callout: none) {
-  /* Apply padding to account for the safe area on iOS devices */
-  .tokenomicsPage {
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-  
-  /* Fix iOS button appearance */
-  .enhancedStakeButton, 
-  .goBackButton {
-    -webkit-appearance: none;
-    appearance: none;
-  }
-  
-  /* Improve scrolling performance on iOS */
-  .tokenomicsTable,
-  .contentArea {
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  /* Fix iOS text rendering issues */
-  .buttonText,
-  .statValue,
-  .validatorHeading,
-  .contentArea h2,
-  .contentArea h3 {
-    /* Prevent blurry text in iOS */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-}
-
-/* Chart section specifically */
-.tokenAllocationChart {
-  width: 100%;
-  max-width: 600px;
-  margin: 40px auto;
-  position: relative;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.chartContainer {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1/1;
-  position: relative;
-  margin: 0 auto;
-  max-width: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Ensure the chart image is properly contained */
-.chartImage {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  position: relative;
-}
-
-/* Chart labels positioned at center */
-.chartLabels {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-
-.chartLabel {
-  font-size: 26px;
-  font-weight: 700;
-  text-align: center;
-  position: absolute;
-}
-
-/* Specifically position the "Free" label */
-.freeLabel {
-  bottom: 40%;
-  color: $white;
-  font-size: 36px;
-  width: 100%;
-  text-align: center;
-}
-
-.freeValue {
-  top: 50%;
-  color: $free-teal;
-  font-size: 42px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Specifically position the "Locked" label */
-.lockedLabel {
-  top: 15%;
-  right: 30%;
-  color: $locked-blue;
-  font-size: 18px;
-}
-
-/* Legend items */
-.chartLegend {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin-top: 20px;
-}
-
-.legendItem {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.legendColor {
-  width: 16px;
-  height: 16px;
-  border-radius: 4px;
-  
-  &.locked {
-    background-color: $locked-blue;
-  }
-  
-  &.free {
-    background-color: $free-teal;
-  }
-}
-
-.legendText {
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.legendValue {
-  margin-left: 4px;
-  font-weight: 700;
-}
-
-/* Add specific media queries for the chart */
-@media (max-width: 768px) {
-  .chartContainer {
-    max-width: 300px;
-  }
-  
-  .freeLabel {
-    font-size: 28px;
-    bottom: 45%;
-  }
-  
-  .freeValue {
-    font-size: 34px;
-  }
-  
-  .lockedLabel {
-    font-size: 16px;
-    top: 20%;
-    right: 25%;
-  }
-  
-  .chartLegend {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .chartContainer {
-    max-width: 240px;
-  }
-  
-  .freeLabel {
-    font-size: 24px;
-    bottom: 47%;
-  }
-  
-  .freeValue {
-    font-size: 28px;
-  }
-  
-  .lockedLabel {
-    font-size: 14px;
-    top: 25%;
-    right: 22%;
-  }
-  
-  .legendItem {
-    font-size: 14px;
-  }
-}
-
-/* iPhone SE and very small devices */
-@media (max-width: 375px) {
-  .chartContainer {
-    max-width: 200px;
-  }
-  
-  .freeLabel {
-    font-size: 20px;
-  }
-  
-  .freeValue {
-    font-size: 24px;
-  }
-  
-  .lockedLabel {
-    font-size: 12px;
   }
 }
