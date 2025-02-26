@@ -12,7 +12,7 @@ export default function TokenomicsPage() {
   };
 
   const handleStakeClick = () => {
-    window.open("https://stake.verafy.io", "_blank");
+    window.open("https://stakewiz.com/validator/TrutHUEykD2UsmAq7W3hA4r3XiQxGLqhENAwo9522xa", "_blank");
   };
 
   return (
@@ -49,22 +49,32 @@ export default function TokenomicsPage() {
             </p>
           </div>
 
-          {/* Enhanced Pie Chart */}
-          <div className={styles.pieChartContainer}>
-            <div className={styles.pieChart}>
-              {/* Labels inside the pie chart */}
-              <div className={styles.pieChartLabels}>
-                <div className={styles.freeLabel}>Free: 99.3%</div>
-                <div className={styles.lockedLabel}>Locked: 0.7%</div>
+          {/* Token Distribution Chart */}
+          <div className={styles.tokenAllocationChart}>
+            <div className={styles.chartContainer}>
+              <Image
+                src="/images/token-chart.png"
+                alt="Token Distribution Chart showing 99.3% Free and 0.7% Locked"
+                width={400}
+                height={400}
+                className={styles.chartImage}
+              />
+              <div className={styles.chartLabels}>
+                <div className={styles.freeLabel}>Free:</div>
+                <div className={styles.freeValue}>99.3%</div>
               </div>
             </div>
             
-            {/* Legend below the chart */}
-            <div className={styles.pieChartLegend}>
-              <span className={styles.locked}>Locked: 7M (0.7%)</span>
-              <span className={styles.free}>Free: 993M (99.3%)</span>
+            <div className={styles.chartLegend}>
+              <div className={styles.legendItem}>
+                <div className={`${styles.legendColor} ${styles.locked}`}></div>
+                <span className={styles.legendText}>Locked: <span className={styles.legendValue}>7M (0.7%)</span></span>
+              </div>
+              <div className={styles.legendItem}>
+                <div className={`${styles.legendColor} ${styles.free}`}></div>
+                <span className={styles.legendText}>Free: <span className={styles.legendValue}>993M (99.3%)</span></span>
+              </div>
             </div>
-            <div className={styles.pieChartTitle}>Fair Launch, Always.</div>
           </div>
 
           {/* Community-First */}
@@ -112,52 +122,88 @@ export default function TokenomicsPage() {
               It embodies our decentralized vision.
             </p>
 
-            <div className={styles.validatorHeadingContainer}>
-              <div className={styles.validatorHeadingPlain}>Validator Metrics (Snapshot): 2-25-2025</div>
+            <div className={styles.validatorSection}>
+              <div className={styles.validatorHeadingContainer}>
+                <h4 className={styles.validatorHeading}>Validator Metrics (Snapshot): 2-25-2025</h4>
+              </div>
+
+              <div className={styles.validatorStatsContainer}>
+                <div className={styles.validatorStats}>
+                  <div className={styles.statRow}>
+                    <div className={styles.statLabel}>SOL Balance:</div>
+                    <div className={styles.statValue}>6.3879 SOL (~$892.71)</div>
+                  </div>
+                  <div className={styles.statRow}>
+                    <div className={styles.statLabel}>Active Stake:</div>
+                    <div className={styles.statValue}>21,642.34 SOL (~$3,024,518.14)</div>
+                  </div>
+                  <div className={styles.statRow}>
+                    <div className={styles.statLabel}>Commission:</div>
+                    <div className={styles.statValue}>5%</div>
+                  </div>
+                  <div className={styles.statRow}>
+                    <div className={styles.statLabel}>Validator Identity:</div>
+                    <div className={styles.statValue}>TruthNode</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.voteAccountContainer}>
+                <div className={styles.voteAccountLabel}>Vote Account:</div>
+                <div className={styles.voteAccountValue}>TrutHUEykD2UsmAq7W3hA4r3XiQxGLqhENAwo9522xa</div>
+              </div>
+
+              <p>
+                TruthNode earns fees through network participation, supporting development and strategic <span className={styles.truthToken}>$TRUTH</span> buybacks. This aligns community interests with long-term platform success.
+              </p>
+
+              <button 
+                onClick={handleStakeClick}
+                className={styles.enhancedStakeButton}
+              >
+                <div className={styles.buttonGlow}></div>
+                <span className={styles.buttonText}>Stake with TruthNode</span>
+              </button>
             </div>
-            <ul className={styles.validatorMetrics}>
-              <li><strong>SOL Balance:</strong> <span>6.3879 SOL (~$892.71)</span></li>
-              <li><strong>Active Stake:</strong> <span>21,642.34 SOL (~$3,024,518.14)</span></li>
-              <li><strong>Commission:</strong> <span>5%</span></li>
-              <li><strong>Validator Identity:</strong> <span>TruthNode</span></li>
-            </ul>
-            <div className={styles.voteAccountContainer}>
-              <div className={styles.voteAccountLabel}>Vote Account:</div>
-              <div className={styles.voteAccountValue}>TrutHUEykD2UsmAq7W3hA4r3XiQxGLqhENAwo9522xa</div>
-            </div>
-            <p>
-              TruthNode earns fees through network participation, supporting development 
-              and strategic <span className={styles.truthToken}>$TRUTH</span> buybacks. This aligns community interests 
-              with long-term platform success.
-            </p>
           </div>
 
-          {/* Future of Truth */}
+          {/* Built for a Future of Truth */}
           <div className={styles.contentBlock}>
             <h3>Built for a Future of Truth</h3>
             <p>
-              Every element of our tokenomics is designed to inspire trust and spark innovation.
-              Simple, transparent, and built to last.
+              Every element of our tokenomics is designed to inspire trust and spark innovation. Simple, 
+              transparent, and built to last.
             </p>
-            <ul className={styles.futureOfTruth}>
-              <li><strong>No Hidden Agendas:</strong> <span>Every token and transaction is fully visible.</span></li>
-              <li><strong>Community-Driven:</strong> <span>You hold the power to shape our path forward.</span></li>
-              <li><strong>Sustainable Vision:</strong> <span>With robust incentives and dynamic utility, <span className={styles.truthToken}>$TRUTH</span> is poised to grow and thrive.</span></li>
-            </ul>
+          </div>
+
+          {/* No Hidden Agendas */}
+          <div className={styles.contentBlock}>
+            <h4>No Hidden Agendas:</h4>
+            <p>
+              Every token and transaction is fully visible.
+            </p>
+          </div>
+
+          {/* Community-Driven */}
+          <div className={styles.contentBlock}>
+            <h4>Community-Driven:</h4>
+            <p>
+              You hold the power to shape our path forward.
+            </p>
+          </div>
+
+          {/* Sustainable Vision */}
+          <div className={styles.contentBlock}>
+            <h4>Sustainable Vision:</h4>
+            <p>
+              With robust incentives and dynamic utility, <span className={styles.truthToken}>$TRUTH</span> is poised to grow and thrive.
+            </p>
           </div>
         </div>
 
-        {/* Enhanced Stake Button */}
+        {/* Go Back Button */}
         <div className={styles.buttonContainer}>
-          <button className={styles.enhancedStakeButton} onClick={handleStakeClick}>
-            <div className={styles.buttonGlow}></div>
-            <span className={styles.buttonText}>Stake your SOL</span>
-          </button>
-        </div>
-
-        {/* Go Back Button (moved into content area) */}
-        <div className={styles.buttonContainer}>
-          <div className={styles.goBackButton} onClick={handleGoBack}>
+          <button className={styles.goBackButton} onClick={handleGoBack}>
             <Image
               src="/images/icons/Vector.svg"
               alt="Arrow icon"
@@ -166,7 +212,7 @@ export default function TokenomicsPage() {
               className={styles.vectorIcon}
             />
             <span>Go back</span>
-          </div>
+          </button>
         </div>
       </section>
     </main>
