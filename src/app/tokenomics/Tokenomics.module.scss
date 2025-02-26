@@ -95,6 +95,8 @@ $free-teal: #00FFF2;
     line-height: 1.7; /* Improved line height */
     color: rgba(255, 255, 255, 0.9); /* Slightly softer white */
     text-align: center;
+    width: 100%; /* Added to ensure full width */
+    max-width: 730px; /* Control the maximum width */
 
     strong:where(:not(.dot)) {
       color: $green-highlight;
@@ -103,6 +105,8 @@ $free-teal: #00FFF2;
     &.centeredBlueText {
       text-align: center;
       color: $white;
+      margin: 0 auto; /* Center horizontally */
+      width: 100%; /* Full width for proper centering */
 
       span.blueText {
         color: $primary-teal;
@@ -363,18 +367,32 @@ $free-teal: #00FFF2;
 .centeredBlueText {
   text-align: center;
   color: $white;
-  background: rgba(0, 0, 0, 0.3); /* Subtle background */
-  padding: 12px 20px; /* Add padding */
-  border-radius: 8px; /* Rounded corners */
-  border: 1px solid rgba(0, 255, 242, 0.1); /* Subtle border */
-  display: inline-block; /* Allow for padding */
-  margin: 8px 0 24px; /* Space around */
-
-  span.blueText {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 255, 242, 0.1);
+  display: block; /* Changed from inline-block */
+  margin: 8px auto 24px;
+  max-width: 500px; /* Control the maximum width */
+  width: 100%;
+  
+  .blueLabel {
+    color: $white;
+    margin-right: 8px;
+    font-weight: 500;
+    display: block; /* Force block layout */
+    margin-bottom: 4px;
+  }
+  
+  .blueText {
     color: $primary-teal;
     text-shadow: 0px 0px 6px rgba(0, 255, 242, 0.3);
-    font-family: monospace; /* Monospace for code-like appearance */
-    letter-spacing: 0.5px; /* Slightly increased letter spacing */
+    font-family: monospace;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-top: 4px;
+    text-align: center;
+    word-break: break-all;
   }
 }
 
@@ -685,32 +703,6 @@ $free-teal: #00FFF2;
   }
 }
 
-.centeredBlueText {
-  text-align: center;
-  color: $white;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 12px 20px;
-  border-radius: 8px;
-  border: 1px solid rgba(0, 255, 242, 0.1);
-  display: inline-block;
-  margin: 8px auto 24px;
-  
-  .blueLabel {
-    color: $white;
-    margin-right: 8px;
-    font-weight: 500;
-  }
-  
-  .blueText {
-    color: $primary-teal;
-    text-shadow: 0px 0px 6px rgba(0, 255, 242, 0.3);
-    font-family: monospace;
-    letter-spacing: 0.5px;
-    display: block;
-    margin-top: 4px;
-  }
-}
-
 .validatorHeadingContainer {
   display: flex;
   justify-content: center;
@@ -751,6 +743,7 @@ $free-teal: #00FFF2;
   flex-direction: column;
   align-items: center;
   max-width: 100%;
+  width: 500px; /* Set a specific width */
 }
 
 .voteAccountLabel {
@@ -759,6 +752,7 @@ $free-teal: #00FFF2;
   font-size: 17px;
   margin-bottom: 8px;
   text-align: center;
+  width: 100%;
 }
 
 .voteAccountValue {
@@ -769,6 +763,7 @@ $free-teal: #00FFF2;
   text-shadow: none;
   word-break: break-all;
   text-align: center;
+  width: 100%;
 }
 
 /* Enhanced Stake Button */
@@ -784,6 +779,9 @@ $free-teal: #00FFF2;
   cursor: pointer;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  margin: 30px auto; /* Center horizontally with margin */
+  display: block; /* Make it a block element */
+  width: fit-content; /* Size based on content */
   
   &:hover {
     transform: translateY(-5px) scale(1.05);

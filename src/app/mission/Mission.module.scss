@@ -135,6 +135,7 @@ $green-highlight: #0acf83;
     max-width: 730px;
     text-align: center;
     color: rgba(255, 255, 255, 0.9); /* Slightly softer white for better contrast */
+    width: 100%; /* Added to ensure full width within container */
   }
 }
 
@@ -302,7 +303,9 @@ $green-highlight: #0acf83;
 .validatorMetrics {
   list-style-type: none;
   padding: 0;
-  margin: 20px 0;
+  margin: 20px auto; /* Center the list */
+  width: 100%; /* Full width to allow centering of content */
+  max-width: 500px; /* Limit width for better readability */
   
   li {
     display: flex;
@@ -401,6 +404,30 @@ $green-highlight: #0acf83;
   margin-bottom: 80px; /* More space below */
   display: flex;
   justify-content: center;
+}
+
+/* Add this new style for validator stats container */
+.validatorStatsContainer {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid rgba(0, 255, 242, 0.1);
+  text-align: center;
+}
+
+/* Center vote account information */
+.voteAccountContainer {
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 255, 242, 0.1);
 }
 
 /* Responsive adjustments */
