@@ -50,31 +50,31 @@ $free-teal: #00FFF2;
     background: linear-gradient(90deg, transparent, $primary-teal, transparent);
     opacity: 0.6;
   }
+}
 
-  h1 {
-    font-size: 92px;
-    font-weight: 800;
-    letter-spacing: -1px;
-    background: linear-gradient(90deg, $primary-teal, $white);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: none;
-    margin-bottom: 24px;
-    animation: scaleIn 1s ease-out;
-    word-wrap: break-word;
-    hyphens: auto;
-  }
+.headerTitle {
+  font-size: 92px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  background: linear-gradient(90deg, $primary-teal, $white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  margin-bottom: 24px;
+  animation: scaleIn 1s ease-out;
+  word-wrap: break-word;
+  hyphens: auto;
+}
 
-  p {
-    max-width: 700px;
-    margin: 0 auto;
-    font-size: 22px;
-    line-height: 1.6;
-    color: $white;
-    text-shadow: none;
-    font-weight: 500;
-    animation: slideUp 1s ease-out;
-  }
+.headerText {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 22px;
+  line-height: 1.6;
+  color: $white;
+  text-shadow: none;
+  font-weight: 500;
+  animation: slideUp 1s ease-out;
 }
 
 @keyframes scaleIn {
@@ -95,6 +95,9 @@ $free-teal: #00FFF2;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Tokenomics Box - similar to roadmapBox */
@@ -105,7 +108,7 @@ $free-teal: #00FFF2;
   border-radius: 32px;
   box-shadow: 0px 4px 42px $shadow-teal;
   border: 1px solid $border-teal;
-  margin-bottom: 40px;
+  margin: 0 auto 40px;
   position: relative;
   overflow: hidden;
   
@@ -136,79 +139,40 @@ $free-teal: #00FFF2;
   &:last-child {
     margin-bottom: 0;
   }
-  
-  h2, h3, h4 {
-    margin-bottom: 24px;
-  }
-  
-  p {
-    margin: 0 auto 24px;
-    font-size: 17px;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 730px;
-    
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
 }
 
-/* Headings */
-h2 {
-  font-size: 38px;
+.sectionTitle {
+  margin-bottom: 24px;
+  font-size: 32px;
   font-weight: 700;
-  background: linear-gradient(90deg, $primary-teal, $white);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: none;
-  text-align: center;
-  letter-spacing: -0.5px;
 }
 
-h3 {
-  font-size: 28px;
-  margin-top: 40px;
-  background: linear-gradient(90deg, $primary-teal, $white);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: none;
-  text-align: center;
-  letter-spacing: -0.5px;
-}
-
-h4 {
-  font-size: 22px;
-  margin: 32px 0 20px;
-  background: linear-gradient(90deg, $primary-teal, $white);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: none;
-  text-align: center;
-}
-
-/* Token highlight */
-.truthToken {
-  color: $green-highlight;
+.sectionSubtitle {
+  margin-bottom: 24px;
+  font-size: 24px;
   font-weight: 600;
-  text-shadow: none;
-  position: relative;
-  padding: 0 2px;
+  margin-top: 30px;
+}
+
+.sectionHeading {
+  margin: 24px 0 12px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.contentText {
+  margin: 0 auto 24px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 730px;
   
-  /* Subtle underline effect */
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: $green-highlight;
-    opacity: 0.5;
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 
-/* Chart section */
+/* Chart section specifically */
 .tokenAllocationChart {
   width: 100%;
   max-width: 600px;
@@ -233,6 +197,7 @@ h4 {
   justify-content: center;
 }
 
+/* Ensure the chart image is properly contained */
 .chartImage {
   width: 100%;
   height: 100%;
@@ -240,6 +205,7 @@ h4 {
   position: relative;
 }
 
+/* Chart labels positioned at center */
 .chartLabels {
   position: absolute;
   top: 0;
@@ -253,13 +219,20 @@ h4 {
   pointer-events: none;
 }
 
+.chartLabel {
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  position: absolute;
+}
+
+/* Specifically position the "Free" label */
 .freeLabel {
   bottom: 40%;
   color: $white;
   font-size: 36px;
   width: 100%;
   text-align: center;
-  position: absolute;
 }
 
 .freeValue {
@@ -268,9 +241,17 @@ h4 {
   font-size: 42px;
   width: 100%;
   text-align: center;
-  position: absolute;
 }
 
+/* Specifically position the "Locked" label */
+.lockedLabel {
+  top: 15%;
+  right: 30%;
+  color: $locked-blue;
+  font-size: 18px;
+}
+
+/* Legend items */
 .chartLegend {
   display: flex;
   justify-content: space-around;
@@ -282,6 +263,7 @@ h4 {
   display: flex;
   align-items: center;
   gap: 8px;
+  font-size: 16px;
 }
 
 .legendColor {
@@ -310,13 +292,13 @@ h4 {
 
 /* Validator section */
 .validatorSection {
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid $border-teal;
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 16px;
   padding: 30px;
-  margin: 30px auto;
+  margin: 40px auto;
+  width: 100%;
   max-width: 730px;
-  text-align: center;
+  border: 1px solid rgba(0, 255, 242, 0.1);
 }
 
 .validatorHeadingContainer {
@@ -325,34 +307,19 @@ h4 {
 }
 
 .validatorHeading {
-  font-size: 22px;
-  color: $primary-teal;
+  font-size: 24px;
   font-weight: 600;
-  text-shadow: none;
-  text-align: center;
-  position: relative;
-  display: inline-block;
-  
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 2px;
-    background: $primary-teal;
-    box-shadow: 0 0 8px $primary-teal;
-  }
+  color: $primary-teal;
+  margin: 0;
 }
 
 .validatorStatsContainer {
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 12px;
   padding: 20px;
+  margin: 0 auto 20px;
+  width: 100%;
+  max-width: 500px;
   border: 1px solid rgba(0, 255, 242, 0.1);
 }
 
@@ -375,8 +342,9 @@ h4 {
 }
 
 .statLabel {
-  color: rgba(255, 255, 255, 0.8);
+  color: $primary-teal;
   font-size: 16px;
+  font-weight: 500;
 }
 
 .statValue {
@@ -397,21 +365,36 @@ h4 {
 }
 
 .voteAccountLabel {
-  color: $white;
+  color: $primary-teal;
+  font-size: 16px;
   font-weight: 500;
-  font-size: 17px;
   margin-bottom: 8px;
-  text-align: center;
 }
 
 .voteAccountValue {
-  color: $primary-teal;
-  font-family: monospace;
-  font-size: 16px;
-  letter-spacing: 0.5px;
-  text-shadow: none;
+  color: $white;
+  font-size: 14px;
   word-break: break-all;
-  text-align: center;
+}
+
+/* Truth token highlight */
+.truthToken {
+  color: $green-highlight;
+  font-weight: 600;
+  position: relative;
+  padding: 0 2px;
+  
+  /* Subtle underline effect */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: $green-highlight;
+    opacity: 0.5;
+  }
 }
 
 /* Enhanced Stake Button */
@@ -430,26 +413,16 @@ h4 {
   margin: 30px auto;
   display: block;
   width: fit-content;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
   
   &:hover {
-    transform: translateY(-5px) scale(1.05);
+    transform: translateY(-2px);
     box-shadow: 
       0px 0px 15px 3px rgba(0, 255, 242, 0.5),
       0px 0px 30px rgba(0, 255, 242, 0.3);
-      
-    .buttonGlow {
-      opacity: 0.8;
-    }
-    
-    .buttonText {
-      text-shadow: 0 0 10px rgba(0, 255, 242, 0.8);
-    }
   }
   
   &:active {
-    transform: translateY(2px) scale(0.98);
+    transform: translateY(1px);
   }
 }
 
@@ -459,23 +432,24 @@ h4 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at center, rgba(0, 255, 242, 0.4), transparent 70%);
-  opacity: 0.4;
-  transition: opacity 0.4s ease;
-  z-index: 0;
+  background: radial-gradient(circle at center, rgba(0, 255, 242, 0.2), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  
+  .enhancedStakeButton:hover & {
+    opacity: 1;
+  }
 }
 
 .buttonText {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   font-size: 18px;
   font-weight: 600;
+  letter-spacing: 0.5px;
   background: linear-gradient(90deg, $primary-teal, $white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: none;
-  transition: all 0.4s ease;
-  letter-spacing: 0.5px;
 }
 
 /* Go Back Button */
@@ -519,12 +493,17 @@ h4 {
   margin-bottom: 80px;
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
-  .headerSection h1 {
+  .headerTitle {
     font-size: 72px;
+  }
+  
+  .headerText {
+    font-size: 20px;
   }
   
   .tokenomicsBox {
@@ -533,16 +512,16 @@ h4 {
 }
 
 @media (max-width: 768px) {
-  .headerSection h1 {
+  .headerSection {
+    padding: 60px 20px 30px;
+  }
+  
+  .headerTitle {
     font-size: 56px;
   }
   
-  .headerSection p {
+  .headerText {
     font-size: 18px;
-  }
-  
-  .contentArea h2 {
-    font-size: 30px;
   }
   
   .tokenomicsBox {
@@ -562,13 +541,13 @@ h4 {
     padding: 40px 16px 20px;
   }
   
-  .headerSection h1 {
+  .headerTitle {
     font-size: 40px;
     letter-spacing: -0.5px;
     margin-bottom: 16px;
   }
   
-  .headerSection p {
+  .headerText {
     font-size: 16px;
     line-height: 1.5;
   }
@@ -583,23 +562,23 @@ h4 {
     margin-bottom: 20px;
   }
   
-  h2 {
+  .sectionTitle {
     font-size: 24px;
     margin-bottom: 16px;
   }
   
-  h3 {
+  .sectionSubtitle {
     font-size: 20px;
     margin-top: 30px;
     margin-bottom: 12px;
   }
   
-  h4 {
+  .sectionHeading {
     font-size: 18px;
     margin: 24px 0 12px;
   }
   
-  .contentBlock p {
+  .contentText {
     font-size: 15px;
     line-height: 1.5;
     margin-bottom: 16px;
@@ -647,11 +626,11 @@ h4 {
 
 /* iPhone SE and other very small devices */
 @media (max-width: 375px) {
-  .headerSection h1 {
+  .headerTitle {
     font-size: 32px;
   }
   
-  .headerSection p {
+  .headerText {
     font-size: 14px;
   }
   
@@ -659,19 +638,19 @@ h4 {
     padding: 16px 12px;
   }
   
-  h2 {
+  .sectionTitle {
     font-size: 20px;
   }
   
-  h3 {
+  .sectionSubtitle {
     font-size: 18px;
   }
   
-  h4 {
+  .sectionHeading {
     font-size: 16px;
   }
   
-  .contentBlock p {
+  .contentText {
     font-size: 14px;
   }
   

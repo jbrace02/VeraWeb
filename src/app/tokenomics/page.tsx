@@ -19,8 +19,8 @@ export default function TokenomicsPage() {
     <main className={styles.tokenomicsPage}>
       {/* Top "Header" Section */}
       <section className={styles.headerSection}>
-        <h1>$TRUTH TOKENOMICS</h1>
-        <p>
+        <h1 className={styles.headerTitle}>$TRUTH TOKENOMICS</h1>
+        <p className={styles.headerText}>
           Verified facts on-chain. No corruption, no bias—
           just blockchain-backed truth.
         </p>
@@ -32,8 +32,8 @@ export default function TokenomicsPage() {
         <div className={styles.tokenomicsBox}>
           {/* A Fair and Transparent Launch */}
           <div className={styles.contentBlock}>
-            <h2>A Fair and Transparent Launch</h2>
-            <p>
+            <h2 className={styles.sectionTitle}>A Fair and Transparent Launch</h2>
+            <p className={styles.contentText}>
               Our tokenomics is built on simplicity, fairness, and community power. 
               We&apos;ve created a transparent ecosystem where everyone has an equal stake 
               in shaping the future of truth.
@@ -42,8 +42,8 @@ export default function TokenomicsPage() {
 
           {/* Fair Launch */}
           <div className={styles.contentBlock}>
-            <h3>Fair Launch, Always</h3>
-            <p>
+            <h3 className={styles.sectionSubtitle}>Fair Launch, Always</h3>
+            <p className={styles.contentText}>
               No pre-sales. No hidden allocations. All 1 billion <span className={styles.truthToken}>$TRUTH</span> tokens 
               were minted at launch—ensuring everyone starts on equal footing.
             </p>
@@ -79,8 +79,8 @@ export default function TokenomicsPage() {
 
           {/* Community-First */}
           <div className={styles.contentBlock}>
-            <h3>Community-First Distribution</h3>
-            <p>
+            <h3 className={styles.sectionSubtitle}>Community-First Distribution</h3>
+            <p className={styles.contentText}>
               From day one, the entire supply belongs to the community. No team holdings, 
               no insider allocations. Our journey is powered by community trust.
             </p>
@@ -88,8 +88,8 @@ export default function TokenomicsPage() {
 
           {/* Locked Liquidity */}
           <div className={styles.contentBlock}>
-            <h3>Locked Liquidity for Security</h3>
-            <p>
+            <h3 className={styles.sectionSubtitle}>Locked Liquidity for Security</h3>
+            <p className={styles.contentText}>
               To build confidence and protect against volatility, we locked 7M tokens for 90 days. 
               This commitment reflects our focus on stability and long-term growth.
             </p>
@@ -97,17 +97,17 @@ export default function TokenomicsPage() {
 
           {/* Utility + Ecosystem */}
           <div className={styles.contentBlock}>
-            <h3>Powerful Utility & Incentives</h3>
-            <p>
+            <h3 className={styles.sectionSubtitle}>Powerful Utility & Incentives</h3>
+            <p className={styles.contentText}>
               Every TruthChain transaction incurs a small <span className={styles.truthToken}>$TRUTH</span> fee,
               which flows back into development and ecosystem growth.
             </p>
-            <p>
+            <p className={styles.contentText}>
               Holding <span className={styles.truthToken}>$TRUTH</span> gives you a voice. Participate in governance, 
               propose updates, and vote on key decisions. The platform evolves with 
               the collective wisdom of its community.
             </p>
-            <p>
+            <p className={styles.contentText}>
               Stake <span className={styles.truthToken}>$TRUTH</span> to secure the network and earn ~7.2% APY. 
               Staking aligns incentives and strengthens our resilience.
             </p>
@@ -115,8 +115,8 @@ export default function TokenomicsPage() {
 
           {/* Community Validator */}
           <div className={styles.contentBlock}>
-            <h3>Community Validator: TruthNode</h3>
-            <p>
+            <h3 className={styles.sectionSubtitle}>Community Validator: TruthNode</h3>
+            <p className={styles.contentText}>
               TruthNode isn&apos;t just a validator—it&apos;s our community-operated node that 
               supports development, funds buybacks, and drives operational excellence.
               It embodies our decentralized vision.
@@ -153,7 +153,7 @@ export default function TokenomicsPage() {
                 <div className={styles.voteAccountValue}>TrutHUEykD2UsmAq7W3hA4r3XiQxGLqhENAwo9522xa</div>
               </div>
 
-              <p>
+              <p className={styles.contentText}>
                 TruthNode earns fees through network participation, supporting development and strategic <span className={styles.truthToken}>$TRUTH</span> buybacks. This aligns community interests with long-term platform success.
               </p>
 
@@ -169,8 +169,8 @@ export default function TokenomicsPage() {
 
           {/* Built for a Future of Truth */}
           <div className={styles.contentBlock}>
-            <h3>Built for a Future of Truth</h3>
-            <p>
+            <h3 className={styles.sectionSubtitle}>Built for a Future of Truth</h3>
+            <p className={styles.contentText}>
               Every element of our tokenomics is designed to inspire trust and spark innovation. Simple, 
               transparent, and built to last.
             </p>
@@ -178,24 +178,24 @@ export default function TokenomicsPage() {
 
           {/* No Hidden Agendas */}
           <div className={styles.contentBlock}>
-            <h4>No Hidden Agendas:</h4>
-            <p>
+            <h4 className={styles.sectionHeading}>No Hidden Agendas:</h4>
+            <p className={styles.contentText}>
               Every token and transaction is fully visible.
             </p>
           </div>
 
           {/* Community-Driven */}
           <div className={styles.contentBlock}>
-            <h4>Community-Driven:</h4>
-            <p>
+            <h4 className={styles.sectionHeading}>Community-Driven:</h4>
+            <p className={styles.contentText}>
               You hold the power to shape our path forward.
             </p>
           </div>
 
           {/* Sustainable Vision */}
           <div className={styles.contentBlock}>
-            <h4>Sustainable Vision:</h4>
-            <p>
+            <h4 className={styles.sectionHeading}>Sustainable Vision:</h4>
+            <p className={styles.contentText}>
               With robust incentives and dynamic utility, <span className={styles.truthToken}>$TRUTH</span> is poised to grow and thrive.
             </p>
           </div>
