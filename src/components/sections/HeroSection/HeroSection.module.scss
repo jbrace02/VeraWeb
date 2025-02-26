@@ -89,7 +89,8 @@ $shadow-teal: rgba(0, 255, 242, 0.5);
 .videoContainer {
   position: relative;
   width: 100%;
-  height: 688px;
+  height: auto; /* Change to auto height to maintain aspect ratio */
+  aspect-ratio: 16 / 9; /* Add aspect ratio to maintain video proportions */
   padding: 0; 
   border-radius: 24px;
   background-color: #000; /* black background inside container */
@@ -97,13 +98,14 @@ $shadow-teal: rgba(0, 255, 242, 0.5);
   justify-content: center;
   align-items: center;
   z-index: 12;
+  overflow: hidden; /* Ensure content doesn't overflow */
 }
 
 .videoPlayer {
   width: 100%;
   height: 100%;
   border-radius: 24px;
-  object-fit: cover;
+  object-fit: contain; /* Change to contain to prevent stretching */
 }
 
 /* The "VERA" tab at the top of the video */
@@ -136,30 +138,30 @@ $shadow-teal: rgba(0, 255, 242, 0.5);
 }
 
 /* 
-  SOCIAL ICONS BAR on the right side: 
-  changed background-color to black 
-  so it's visible on a dark background 
+  SOCIAL ICONS BAR - Fix for mobile view
+  Make it horizontal on all screen sizes
 */
 .socialIconsContainer {
   position: absolute;
-  right: -56px;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 10px;
+  bottom: -60px; /* Position below the video */
   background-color: #000; /* black background */
-  border-radius: 0 12px 12px 0;
-  padding: 16px 8px;
-
-  /* Optional teal border without glow */
+  border-radius: 12px;
+  padding: 8px 16px;
   border: 1px solid rgba(0, 255, 242, 0.24);
   box-shadow: none;
-
   z-index: 13;
+  width: fit-content;
+  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
 }
 
 .socialIcons {
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* Always horizontal */
   gap: 24px;
+  justify-content: center;
 }
 
 .iconWrapper {
@@ -272,7 +274,7 @@ $shadow-teal: rgba(0, 255, 242, 0.5);
 
 @media screen and (max-width: 992px) {
   .heroSection {
-    margin-top: 220px; /* Increased to account for larger header */
+    margin-top: 220px;
     margin-bottom: 200px;
   }
   
@@ -301,7 +303,7 @@ $shadow-teal: rgba(0, 255, 242, 0.5);
 
 @media screen and (max-width: 768px) {
   .heroSection {
-    margin-top: 280px; /* Increased significantly to account for stacked header elements */
+    margin-top: 280px;
     margin-bottom: 180px;
   }
   
@@ -341,7 +343,7 @@ $shadow-teal: rgba(0, 255, 242, 0.5);
   .ctaButton {
     font-size: 20px;
     padding: 12px 30px;
-    margin-top: 60px;
+    margin-top: 80px; /* Increase to make room for social icons */
   }
   
   .buttonText {
@@ -351,7 +353,7 @@ $shadow-teal: rgba(0, 255, 242, 0.5);
 
 @media screen and (max-width: 480px) {
   .heroSection {
-    margin-top: 20px; /* Reduced because header is now position: relative */
+    margin-top: 20px;
     margin-bottom: 120px;
   }
   
@@ -382,11 +384,15 @@ $shadow-teal: rgba(0, 255, 242, 0.5);
   
   .ctaButton {
     padding: 10px 24px;
-    margin-top: 50px;
+    margin-top: 70px; /* Adjusted for social icons */
   }
   
   .buttonText {
     font-size: 14px;
+  }
+  
+  .socialIconsContainer {
+    padding: 6px 12px;
   }
   
   .socialIcons {
