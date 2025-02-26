@@ -49,29 +49,26 @@ export default function TokenomicsPage() {
             </p>
           </div>
 
-          {/* Token Distribution Chart */}
+          {/* CSS-based Pie Chart */}
           <div className={styles.tokenAllocationChart}>
-            <div className={styles.chartContainer}>
-              <Image
-                src="/images/token-chart.png"
-                alt="Token Distribution Chart showing 99.3% Free and 0.7% Locked"
-                width={400}
-                height={400}
-                className={styles.chartImage}
-              />
+            <div className={styles.pieChartContainer}>
+              <div className={styles.pieChart}>
+                <div className={styles.slice}></div>
+              </div>
               <div className={styles.chartLabels}>
                 <div className={styles.freeLabel}>Free:</div>
                 <div className={styles.freeValue}>99.3%</div>
+                <div className={styles.lockedLabel}>Locked: 0.7%</div>
               </div>
             </div>
             
             <div className={styles.chartLegend}>
               <div className={styles.legendItem}>
-                <div className={`${styles.legendColor} ${styles.locked}`}></div>
+                <div className={`${styles.legendColor} ${styles.lockedColor}`}></div>
                 <span className={styles.legendText}>Locked: <span className={styles.legendValue}>7M (0.7%)</span></span>
               </div>
               <div className={styles.legendItem}>
-                <div className={`${styles.legendColor} ${styles.free}`}></div>
+                <div className={`${styles.legendColor} ${styles.freeColor}`}></div>
                 <span className={styles.legendText}>Free: <span className={styles.legendValue}>993M (99.3%)</span></span>
               </div>
             </div>

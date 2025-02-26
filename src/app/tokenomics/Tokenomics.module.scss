@@ -172,40 +172,39 @@ $free-teal: #00FFF2;
   }
 }
 
-/* Chart section specifically */
+/* Token Distribution Chart */
 .tokenAllocationChart {
   width: 100%;
   max-width: 600px;
   margin: 40px auto;
-  position: relative;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
-.chartContainer {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1/1;
+.pieChartContainer {
   position: relative;
+  width: 300px;
+  height: 300px;
   margin: 0 auto;
-  max-width: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-/* Ensure the chart image is properly contained */
-.chartImage {
+.pieChart {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  border-radius: 50%;
+  background-color: #00FFF2; /* Free tokens color */
   position: relative;
+  overflow: hidden;
 }
 
-/* Chart labels positioned at center */
+/* The slice representing locked tokens (0.7%) */
+.slice {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(50% 50%, 50% 0, 52.5% 0, 52.5% 50%);
+  background-color: #4A90E2; /* Locked tokens color */
+}
+
 .chartLabels {
   position: absolute;
   top: 0;
@@ -219,43 +218,32 @@ $free-teal: #00FFF2;
   pointer-events: none;
 }
 
-.chartLabel {
-  font-size: 26px;
-  font-weight: 700;
-  text-align: center;
-  position: absolute;
-}
-
-/* Specifically position the "Free" label */
 .freeLabel {
-  bottom: 40%;
-  color: $white;
-  font-size: 36px;
-  width: 100%;
-  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 5px;
 }
 
 .freeValue {
-  top: 50%;
-  color: $free-teal;
   font-size: 42px;
-  width: 100%;
-  text-align: center;
+  font-weight: 800;
+  color: #fff;
 }
 
-/* Specifically position the "Locked" label */
 .lockedLabel {
+  position: absolute;
   top: 15%;
-  right: 30%;
-  color: $locked-blue;
-  font-size: 18px;
+  right: 20%;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
 }
 
-/* Legend items */
 .chartLegend {
   display: flex;
-  justify-content: space-around;
-  width: 100%;
+  justify-content: center;
+  gap: 30px;
   margin-top: 20px;
 }
 
@@ -263,31 +251,29 @@ $free-teal: #00FFF2;
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 16px;
 }
 
 .legendColor {
   width: 16px;
   height: 16px;
   border-radius: 4px;
-  
-  &.locked {
-    background-color: $locked-blue;
-  }
-  
-  &.free {
-    background-color: $free-teal;
-  }
+}
+
+.lockedColor {
+  background-color: #4A90E2;
+}
+
+.freeColor {
+  background-color: #00FFF2;
 }
 
 .legendText {
   font-size: 16px;
-  font-weight: 500;
+  color: #fff;
 }
 
 .legendValue {
-  margin-left: 4px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 /* Validator section */
@@ -584,18 +570,6 @@ $free-teal: #00FFF2;
     margin-bottom: 16px;
   }
   
-  .chartContainer {
-    max-width: 280px;
-  }
-  
-  .freeLabel {
-    font-size: 24px;
-  }
-  
-  .freeValue {
-    font-size: 28px;
-  }
-  
   .validatorSection {
     padding: 20px 15px;
   }
@@ -652,18 +626,6 @@ $free-teal: #00FFF2;
   
   .contentText {
     font-size: 14px;
-  }
-  
-  .chartContainer {
-    max-width: 240px;
-  }
-  
-  .freeLabel {
-    font-size: 20px;
-  }
-  
-  .freeValue {
-    font-size: 24px;
   }
   
   .enhancedStakeButton {
