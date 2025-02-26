@@ -270,6 +270,7 @@
     padding: 0.8rem 1rem;
     flex-wrap: wrap;
     justify-content: space-between;
+    height: auto;
   }
   
   .logoContainer {
@@ -315,6 +316,11 @@
 }
 
 @media screen and (max-width: 480px) {
+  .header {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
   .buttonGroup {
     flex-direction: column;
     gap: 0.5rem;

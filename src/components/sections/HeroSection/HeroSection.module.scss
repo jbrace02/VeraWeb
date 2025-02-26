@@ -10,7 +10,7 @@ $shadow-teal: rgba(0, 255, 242, 0.5);
 .heroSection {
   position: relative;
   width: 100%;
-  margin-top: 200px;
+  margin-top: 200px; /* Default for desktop */
   margin-bottom: 320px;
   overflow: hidden;
   display: flex;
@@ -254,16 +254,54 @@ $shadow-teal: rgba(0, 255, 242, 0.5);
   }
 }
 
-/* Responsive adjustments */
+/* Improved Responsive adjustments */
 @media screen and (max-width: 1244px) {
   .videoBox {
     max-width: 90%;
+    padding: 30px;
+  }
+  
+  .videoContainer {
+    height: 550px;
+  }
+  
+  .socialIconsContainer {
+    right: -46px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .heroSection {
+    margin-top: 220px; /* Increased to account for larger header */
+    margin-bottom: 200px;
+  }
+  
+  .gradientHeading {
+    font-size: 60px;
+  }
+  
+  .videoContainer {
+    height: 480px;
+  }
+  
+  .socialIconsContainer {
+    right: 10px;
+    top: auto;
+    bottom: -60px;
+    transform: none;
+    flex-direction: row;
+    border-radius: 12px;
+    padding: 8px 16px;
+  }
+  
+  .socialIcons {
+    flex-direction: row;
   }
 }
 
 @media screen and (max-width: 768px) {
   .heroSection {
-    margin-top: 120px;
+    margin-top: 280px; /* Increased significantly to account for stacked header elements */
     margin-bottom: 180px;
   }
   
@@ -279,7 +317,7 @@ $shadow-teal: rgba(0, 255, 242, 0.5);
   
   .videoBox {
     padding: 20px;
-    max-width: 90%;
+    max-width: 95%;
   }
   
   .videoContainer {
@@ -287,7 +325,11 @@ $shadow-teal: rgba(0, 255, 242, 0.5);
   }
   
   .socialIconsContainer {
-    display: none;
+    position: relative;
+    right: auto;
+    bottom: -20px;
+    width: fit-content;
+    margin: 0 auto;
   }
   
   .veraTab {
@@ -299,6 +341,7 @@ $shadow-teal: rgba(0, 255, 242, 0.5);
   .ctaButton {
     font-size: 20px;
     padding: 12px 30px;
+    margin-top: 60px;
   }
   
   .buttonText {
@@ -308,7 +351,7 @@ $shadow-teal: rgba(0, 255, 242, 0.5);
 
 @media screen and (max-width: 480px) {
   .heroSection {
-    margin-top: 100px;
+    margin-top: 20px; /* Reduced because header is now position: relative */
     margin-bottom: 120px;
   }
   
@@ -339,10 +382,20 @@ $shadow-teal: rgba(0, 255, 242, 0.5);
   
   .ctaButton {
     padding: 10px 24px;
+    margin-top: 50px;
   }
   
   .buttonText {
     font-size: 14px;
+  }
+  
+  .socialIcons {
+    gap: 16px;
+  }
+  
+  .iconWrapper {
+    width: 36px;
+    height: 36px;
   }
 }
 
@@ -376,6 +429,33 @@ $shadow-teal: rgba(0, 255, 242, 0.5);
 .ctaButton:focus-visible {
   outline: 2px solid #00fff2;
   outline-offset: 3px;
+}
+
+/* Video controls styling */
+.videoPlayer::-webkit-media-controls {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0 0 24px 24px;
+}
+
+.videoPlayer::-webkit-media-controls-panel {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.videoPlayer::-webkit-media-controls-play-button {
+  background-color: $primary-teal;
+  border-radius: 50%;
+}
+
+.videoPlayer::-webkit-media-controls-timeline {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  height: 4px;
+}
+
+.videoPlayer::-webkit-media-controls-volume-slider {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  height: 4px;
 }
 
 

@@ -42,6 +42,7 @@ const HeroSection: NextPage = () => {
             loop 
             muted 
             playsInline
+            controls
             poster="/images/vera-poster.jpg"
             aria-label="Vera AI agent visualization video"
           >
