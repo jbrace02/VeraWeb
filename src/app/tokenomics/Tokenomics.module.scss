@@ -950,3 +950,193 @@ $free-teal: #00FFF2;
     -moz-osx-font-smoothing: grayscale;
   }
 }
+
+/* Chart section specifically */
+.tokenAllocationChart {
+  width: 100%;
+  max-width: 600px;
+  margin: 40px auto;
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.chartContainer {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+  position: relative;
+  margin: 0 auto;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure the chart image is properly contained */
+.chartImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+}
+
+/* Chart labels positioned at center */
+.chartLabels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.chartLabel {
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  position: absolute;
+}
+
+/* Specifically position the "Free" label */
+.freeLabel {
+  bottom: 40%;
+  color: $white;
+  font-size: 36px;
+  width: 100%;
+  text-align: center;
+}
+
+.freeValue {
+  top: 50%;
+  color: $free-teal;
+  font-size: 42px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Specifically position the "Locked" label */
+.lockedLabel {
+  top: 15%;
+  right: 30%;
+  color: $locked-blue;
+  font-size: 18px;
+}
+
+/* Legend items */
+.chartLegend {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legendColor {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  
+  &.locked {
+    background-color: $locked-blue;
+  }
+  
+  &.free {
+    background-color: $free-teal;
+  }
+}
+
+.legendText {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.legendValue {
+  margin-left: 4px;
+  font-weight: 700;
+}
+
+/* Add specific media queries for the chart */
+@media (max-width: 768px) {
+  .chartContainer {
+    max-width: 300px;
+  }
+  
+  .freeLabel {
+    font-size: 28px;
+    bottom: 45%;
+  }
+  
+  .freeValue {
+    font-size: 34px;
+  }
+  
+  .lockedLabel {
+    font-size: 16px;
+    top: 20%;
+    right: 25%;
+  }
+  
+  .chartLegend {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chartContainer {
+    max-width: 240px;
+  }
+  
+  .freeLabel {
+    font-size: 24px;
+    bottom: 47%;
+  }
+  
+  .freeValue {
+    font-size: 28px;
+  }
+  
+  .lockedLabel {
+    font-size: 14px;
+    top: 25%;
+    right: 22%;
+  }
+  
+  .legendItem {
+    font-size: 14px;
+  }
+}
+
+/* iPhone SE and very small devices */
+@media (max-width: 375px) {
+  .chartContainer {
+    max-width: 200px;
+  }
+  
+  .freeLabel {
+    font-size: 20px;
+  }
+  
+  .freeValue {
+    font-size: 24px;
+  }
+  
+  .lockedLabel {
+    font-size: 12px;
+  }
+}
