@@ -98,6 +98,10 @@ $shadow-teal: rgba(0, 255, 242, 0.5);
 .textContainer {
   width: 45%;
   z-index: 12; /* Ensure text renders on top */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center all content horizontally */
+  text-align: center; /* Center text content */
 }
 
 /* Gradient Heading in Inter, no glow */
@@ -166,6 +170,8 @@ $shadow-teal: rgba(0, 255, 242, 0.5);
   margin-bottom: 24px;
   font-weight: 700;
   letter-spacing: -0.5px;
+  text-align: center; /* Center heading text */
+  width: 100%; /* Ensure full width */
 }
 
 /* Body text in Inter, no glow */
@@ -179,6 +185,7 @@ $shadow-teal: rgba(0, 255, 242, 0.5);
   border-radius: 16px;
   border: 1px solid rgba(0, 255, 242, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center; /* Center text content */
   
   &:hover {
     transform: translateY(-5px);
@@ -199,6 +206,9 @@ $shadow-teal: rgba(0, 255, 242, 0.5);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  margin: 0 auto; /* Center the button horizontally */
+  display: block; /* Make button a block element */
+  width: fit-content; /* Width based on content */
 
   &:before {
     content: '';
