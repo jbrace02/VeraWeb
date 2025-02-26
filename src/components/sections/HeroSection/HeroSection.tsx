@@ -18,7 +18,7 @@ const neoneon = localFont({
 
 const HeroSection: NextPage = () => {
   const handleVisitTerminal = () => {
-    window.open("/truth-terminal/index.html", "_blank");
+    window.open("https://truthterminalmvp-production.up.railway.app/", "_blank");
   };
 
   return (
