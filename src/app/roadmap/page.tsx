@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 export default function RoadmapPage() {
   const router = useRouter();
-  const [isVisible, setIsVisible] = useState(false);
+  const [, setIsVisible] = useState(false);
 
   // Animation effect when component mounts
   useEffect(() => {
@@ -44,7 +44,7 @@ export default function RoadmapPage() {
         <div className={styles.roadmapBox}>
           {/* Main Content / Achievements */}
           <p>
-            Since our January 27th launch, we've built momentum, grown our community,
+            Since our January 27th launch, we&apos;ve built momentum, grown our community,
             and delivered on key milestones:
           </p>
           <ul className={styles.roadmapList}>
@@ -64,7 +64,7 @@ export default function RoadmapPage() {
 
           <h2 className={styles.longTermTitle}>Long-Term Vision</h2>
           <p>
-            We're building more than a project—we're creating a decentralized AI
+            We&apos;re building more than a project—we&apos;re creating a decentralized AI
             verification layer for the future. More groundbreaking developments are underway,
             but for now, we stay focused: expanding our reach, refining our technology,
             and fortifying truth.

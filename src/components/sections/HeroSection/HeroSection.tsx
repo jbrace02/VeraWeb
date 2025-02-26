@@ -27,7 +27,7 @@ const HeroSection: NextPage = () => {
       <div className={styles.textBlock}>
         <h1 className={styles.gradientHeading}>Meet Vera–A Guardian of Truth</h1>
         <p className={styles.subheading}>
-          Vera is Truth's AI agent, built on ElizaOS. Relentlessly evolving to
+          Vera is Truth&apos;s AI agent, built on ElizaOS. Relentlessly evolving to
           uncover and combat misinformation.
         </p>
       </div>

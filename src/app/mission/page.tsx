@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 export default function MissionPage() {
   const router = useRouter();
-  const [isVisible, setIsVisible] = useState(false);
+  const [, setIsVisible] = useState(false);
 
   // Animation effect when component mounts
   useEffect(() => {
@@ -35,13 +35,13 @@ export default function MissionPage() {
         {/* Mission Box */}
         <div className={styles.missionBox}>
           <p>
-            In a world where misinformation spreads faster than truth, we're building 
+            In a world where misinformation spreads faster than truth, we&apos;re building 
             a decentralized ecosystem that verifies facts, combats AI-generated falsehoods, 
             and restores trust in information.
           </p>
 
           <p>
-            $TRUTH is more than a token—it's a movement to reclaim truth in the digital age. 
+            $TRUTH is more than a token—it&apos;s a movement to reclaim truth in the digital age. 
             Our blockchain-powered platform creates an immutable record of verified facts, 
             making manipulation impossible and accountability inevitable.
           </p>
@@ -100,7 +100,7 @@ export default function MissionPage() {
 
           <h2 className={styles.sectionTitle}>TruthNode: The Community Validator</h2>
           <p>
-            TruthNode isn't just a validator—it's our community-operated node that supports development, 
+            TruthNode isn&apos;t just a validator—it&apos;s our community-operated node that supports development, 
             funds buybacks, and drives operational excellence. It embodies our decentralized vision.
           </p>
 
@@ -122,7 +122,7 @@ export default function MissionPage() {
           <h2 className={styles.sectionTitle}>Built for a Future of Truth</h2>
           <p>
             Every element of our ecosystem is designed to inspire trust and spark innovation. 
-            We're creating a world where facts are verified, misinformation is exposed, and truth prevails.
+            We&apos;re creating a world where facts are verified, misinformation is exposed, and truth prevails.
           </p>
 
           <div className={styles.callToAction}>

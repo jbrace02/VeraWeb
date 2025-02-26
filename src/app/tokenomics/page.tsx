@@ -7,7 +7,8 @@ import { useEffect, useState } from "react";
 
 export default function TokenomicsPage() {
   const router = useRouter();
-  const [isVisible, setIsVisible] = useState(false);
+  // Remove unused variable but keep the state setter
+  const [, setIsVisible] = useState(false);
 
   // Animation effect when component mounts
   useEffect(() => {
@@ -42,7 +43,7 @@ export default function TokenomicsPage() {
             <h2>A Fair and Transparent Launch</h2>
             <p>
               Our tokenomics is built on simplicity, fairness, and community power. 
-              We've created a transparent ecosystem where everyone has an equal stake 
+              We&apos;ve created a transparent ecosystem where everyone has an equal stake 
               in shaping the future of truth.
             </p>
           </div>
@@ -114,7 +115,7 @@ export default function TokenomicsPage() {
           <div className={styles.contentBlock}>
             <h3>Community Validator: TruthNode</h3>
             <p>
-              TruthNode isn't just a validator—it's our community-operated node that 
+              TruthNode isn&apos;t just a validator—it&apos;s our community-operated node that 
               supports development, funds buybacks, and drives operational excellence.
               It embodies our decentralized vision.
             </p>

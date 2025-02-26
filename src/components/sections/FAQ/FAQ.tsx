@@ -34,7 +34,7 @@ const FAQ: React.FC = () => {
       question: "How does the $TRUTH token work?",
       answer: (
         <div className={styles.answerSection}>
-          $TRUTH is the native utility token of the TruthChain ecosystem. It's used for governance, staking, and accessing premium features. The token was launched with a fair distribution model - 99.3% of the total supply was made available to the community at launch, with only 0.7% locked for ecosystem development.
+          $TRUTH is the native utility token of the TruthChain ecosystem. It&apos;s used for governance, staking, and accessing premium features. The token was launched with a fair distribution model - 99.3% of the total supply was made available to the community at launch, with only 0.7% locked for ecosystem development.
         </div>
       ),
     },
@@ -61,7 +61,7 @@ const FAQ: React.FC = () => {
       question: "What makes TruthChain different from other AI projects?",
       answer: (
         <div className={styles.answerSection}>
-          TruthChain stands out through its commitment to decentralization, transparency, and community governance. Unlike many AI projects, we're focused specifically on combating misinformation through a combination of blockchain verification and advanced AI. Our fair launch approach also demonstrates our commitment to building a truly community-owned platform.
+          TruthChain stands out through its commitment to decentralization, transparency, and community governance. Unlike many AI projects, we&apos;re focused specifically on combating misinformation through a combination of blockchain verification and advanced AI. Our fair launch approach also demonstrates our commitment to building a truly community-owned platform.
         </div>
       ),
     },
