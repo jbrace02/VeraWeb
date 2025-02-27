@@ -40,7 +40,7 @@ const Staking: NextPage = () => {
               <video
                 autoPlay
                 loop
-                muted
+                controls
                 className={styles.video}
                 poster="/images/truth-placeholder.png"
               >
