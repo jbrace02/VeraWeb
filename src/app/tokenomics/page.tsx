@@ -121,26 +121,30 @@ export default function TokenomicsPage() {
 
             <div className={styles.validatorSection}>
               <div className={styles.validatorHeadingContainer}>
-                <h4 className={styles.validatorHeading}>Validator Metrics (Snapshot): 2-25-2025</h4>
+                <h4 className={styles.validatorHeading}>Validator Metrics (Snapshot): 4-2-2025</h4>
               </div>
 
               <div className={styles.validatorStatsContainer}>
                 <div className={styles.validatorStats}>
                   <div className={styles.statRow}>
                     <div className={styles.statLabel}>SOL Balance:</div>
-                    <div className={styles.statValue}>6.3879 SOL (~$892.71)</div>
+                    <div className={styles.statValue}>5.963 SOL (~$772.63)</div>
                   </div>
                   <div className={styles.statRow}>
                     <div className={styles.statLabel}>Active Stake:</div>
-                    <div className={styles.statValue}>21,642.34 SOL (~$3,024,518.14)</div>
+                    <div className={styles.statValue}>53,355.61 SOL (~$6,913,286.70)</div>
                   </div>
                   <div className={styles.statRow}>
                     <div className={styles.statLabel}>Commission:</div>
                     <div className={styles.statValue}>5%</div>
                   </div>
                   <div className={styles.statRow}>
-                    <div className={styles.statLabel}>Validator Identity:</div>
-                    <div className={styles.statValue}>TruthNode</div>
+                    <div className={styles.statLabel}>Total Reward:</div>
+                    <div className={styles.statValue}>16.87 SOL (~$2,186.77)</div>
+                  </div>
+                  <div className={styles.statRow}>
+                    <div className={styles.statLabel}>Root Slot:</div>
+                    <div className={styles.statValue}>330816680</div>
                   </div>
                 </div>
               </div>
