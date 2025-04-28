@@ -60,15 +60,22 @@ const Tokenomics: NextPage = () => {
           locked by the team, 993M (99.3%) released to the public. Equal access for all. 
           All unlocked tokens are in circulation, with no emission schedule.
         </p>
+
+        {/* Validator Metrics (Snapshot): 4-28-2025 */}
+        <div className={styles.validatorMetricsSection}>
+          <h3 className={styles.validatorMetricsTitle}>Validator Metrics (Snapshot): 4-28-2025</h3>
+          <ul className={styles.validatorMetricsList}>
+            <li><strong>SOL Balance:</strong> 2.4631 (<span>$359.96</span>)</li>
+            <li><strong>Credits:</strong> 46</li>
+            <li><strong>Root slot:</strong> 336498185</li>
+            <li><strong>Delegated Stake:</strong> 69,946.29 SOL (<span>$10,221,950.94</span>)</li>
+            <li><strong>Active Stake:</strong> 65,677.5 SOL (<span>$9,598,110.66</span>)</li>
+            <li><strong>Total Reward:</strong> 20.06 SOL (<span>$2,932.66</span>)</li>
+          </ul>
+        </div>
       </div>
     </section>
   );
 };
 
 export default Tokenomics;
-
-
-
-
-
-
