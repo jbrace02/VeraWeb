@@ -121,30 +121,34 @@ export default function TokenomicsPage() {
 
             <div className={styles.validatorSection}>
               <div className={styles.validatorHeadingContainer}>
-                <h4 className={styles.validatorHeading}>Validator Metrics (Snapshot): 4-2-2025</h4>
+                <h4 className={styles.validatorHeading}>Validator Metrics (Snapshot): 4-28-2025</h4>
               </div>
 
               <div className={styles.validatorStatsContainer}>
                 <div className={styles.validatorStats}>
                   <div className={styles.statRow}>
                     <div className={styles.statLabel}>SOL Balance:</div>
-                    <div className={styles.statValue}>5.963 SOL (~$772.63)</div>
+                    <div className={styles.statValue}>2.4631 SOL (~$359.96)</div>
                   </div>
                   <div className={styles.statRow}>
-                    <div className={styles.statLabel}>Active Stake:</div>
-                    <div className={styles.statValue}>53,355.61 SOL (~$6,913,286.70)</div>
-                  </div>
-                  <div className={styles.statRow}>
-                    <div className={styles.statLabel}>Commission:</div>
-                    <div className={styles.statValue}>5%</div>
-                  </div>
-                  <div className={styles.statRow}>
-                    <div className={styles.statLabel}>Total Reward:</div>
-                    <div className={styles.statValue}>16.87 SOL (~$2,186.77)</div>
+                    <div className={styles.statLabel}>Credits:</div>
+                    <div className={styles.statValue}>46</div>
                   </div>
                   <div className={styles.statRow}>
                     <div className={styles.statLabel}>Root Slot:</div>
-                    <div className={styles.statValue}>330816680</div>
+                    <div className={styles.statValue}>336498185</div>
+                  </div>
+                  <div className={styles.statRow}>
+                    <div className={styles.statLabel}>Delegated Stake:</div>
+                    <div className={styles.statValue}>69,946.29 SOL (~$10,221,950.94)</div>
+                  </div>
+                  <div className={styles.statRow}>
+                    <div className={styles.statLabel}>Active Stake:</div>
+                    <div className={styles.statValue}>65,677.5 SOL (~$9,598,110.66)</div>
+                  </div>
+                  <div className={styles.statRow}>
+                    <div className={styles.statLabel}>Total Reward:</div>
+                    <div className={styles.statValue}>20.06 SOL (~$2,932.66)</div>
                   </div>
                 </div>
               </div>
